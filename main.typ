@@ -194,44 +194,35 @@
 )
 
 #skills(
-  (
-    name: "Programming Languages",
-    skills: (
-      "Python",
-      "Rust",
-      "Go",
-      "TypeScript",
-      "Ruby",
-      "SQL",
-      "C",
-      "Java",
-    ),
+  programming-languages: (
+    "Python",
+    "Rust",
+    "Go",
+    "TypeScript",
+    "Ruby",
+    "SQL",
+    "C",
+    "Java",
   ),
-  (
-    name: "Frameworks & Libraries",
-    skills: (
-      "React",
-      "Ruby on Rails",
-      "Next.js",
-      "Svelte",
-      "OpenTelemetry",
-      "Terraform",
-    ),
+  frameworks-and-libraries: (
+    "React",
+    "Ruby on Rails",
+    "Next.js",
+    "Svelte",
+    "OpenTelemetry",
+    "Terraform",
   ),
-  (
-    name: "Tools & Technologies",
-    skills: (
-      "Amazon Web Serivces",
-      "Google Cloud Platform",
-      "Docker",
-      "Kubernetes",
-      "Linux",
-      "PostgreSQL",
-      "Redis",
-      "Git",
-      "GitHub Actions",
-    ),
-  )
+  tools-and-technologies: (
+    "Amazon Web Serivces",
+    "Google Cloud Platform",
+    "Docker",
+    "Kubernetes",
+    "Linux",
+    "PostgreSQL",
+    "Redis",
+    "Git",
+    "GitHub Actions",
+  ),
 )
 
 #place(bottom + right, dx: 1.5em, block[
