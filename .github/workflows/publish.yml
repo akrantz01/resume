@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - id: generator
-        run: |
-          echo "layouts=$(find ./layouts -type f -name '*.typ' -printf '\"%f\"' | jq -cs)" >> "$GITHUB_OUTPUT"
+      - name: Find layouts
+        id: generator
+        run: echo "layouts=$(find ./layouts -type f -printf '"%f"' | jq -cs)" >> "$GITHUB_OUTPUT"
 
   compile:
     name: Compile (${{ matrix.layout }})
