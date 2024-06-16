@@ -16,17 +16,15 @@
 #show link: underline
 #show link: set underline(offset: 3pt)
 
-#align(center, block[
-  #text(size: 2.25em, font: "Fira Code Retina")[Alexander Krantz] \
-  #block()[
-    +1 778 873 1160 |
-    #link("mailto:alex@krantz.dev", "alex@krantz.dev") |
-    #link("https://krantz.dev", "krantz.dev") |
-    #link("https://github.com/akrantz01", "github.com/akrantz01") |
-    #link("https://linkedin.com/in/akrantz01", "linkedin.com/in/akrantz01")
-  ]
-])
-#v(5pt)
+#import "template/heading.typ": header
+
+#header("Alexander Krantz", (
+  ( type: "email", email: "alex@krantz.dev" ),
+  ( type: "phone", phone: "+1 778 873 1160" ),
+  ( type: "website", text: "krantz.dev", url: "https://krantz.dev" ),
+  ( type: "github", username: "akrantz01" ),
+  ( type: "linkedin", username: "akrantz01" ),
+))
 
 #let section_heading(title) = {
   show heading: set text(size: 0.92em, weight: "bold")
