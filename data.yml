@@ -186,7 +186,7 @@ awards:
     on: 2019-01-08
 
 skills:
-  programming-languages:
+  "Programming Languages":
     - Python
     - Rust
     - Go
@@ -195,14 +195,14 @@ skills:
     - SQL
     - C
     - Java
-  frameworks-and-libraries:
+  "Frameworks & Libraries":
     - React
     - Ruby on Rails
     - Next.js
     - Svelte
     - OpenTelemetry
     - Terraform
-  tools-and-technologies:
+  "Tools & Technologies":
     - Amazon Web Serivces
     - Google Cloud Platform
     - Docker
