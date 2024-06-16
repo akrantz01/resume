@@ -129,6 +129,9 @@ projects:
     description: An asynchronous, user-friendly ACME client written in Rust
     start: 2023-03-14
     end: 2023-03-30
+    url:
+      type: github
+      href: https://github.com/akrantz01/lers
     details:
       - Implements the full RFC 8555 specification, including external account bindings.
       - >-
@@ -139,6 +142,9 @@ projects:
     description: A simple WebDAV server with a basic web UI, authentication, and authorization
     start: 2022-07-21
     end: 2022-08-13
+    url:
+      type: github
+      href: https://github.com/akrantz01/davoxide
     details:
       - A Rust-based class 1 WebDAV server implementing all required features of RFC 4918.
       - Read-only access to files through a web UI using GraphQL written in TypeScript using React.
@@ -150,6 +156,9 @@ projects:
     description: Internet-controlled LEDs for my dorm running on a Raspberry Pi 4
     start: 2021-09-30
     end: 2022-04-03
+    url:
+      type: github
+      href: https://github.com/akrantz01/lights
     details:
       - >-
         Drives a strip of Adafruit NeoPixels with a Rasperry Pi 4 through a Rust-based library for

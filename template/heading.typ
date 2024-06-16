@@ -1,4 +1,4 @@
-#let icon(name) = box(height: 9pt, move(dx: -2pt, dy: 2pt, image("icons/" + name + ".svg")))
+#import "common.typ": icon
 
 #let format_phone_number(phone) = {
   if phone.starts-with("+") == false { panic("Phone number must start with a country code") }

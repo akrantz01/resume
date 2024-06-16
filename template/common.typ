@@ -8,6 +8,8 @@
   ]
 }
 
+#let icon(name) = box(height: 9pt, move(dx: -2pt, dy: 2pt, image("icons/" + name + ".svg")))
+
 #let parse-date(raw) = {
   if raw == none {
     return none
