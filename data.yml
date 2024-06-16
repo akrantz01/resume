@@ -7,7 +7,6 @@ author:
     - type: phone
       phone: +1 778 873 1160
     - type: website
-      text: krantz.dev
       url: https://krantz.dev
     - type: github
       username: akrantz01
@@ -148,7 +147,7 @@ projects:
         challenges.
 
   - title: DAVOxide
-    description: A simple WebDAV server with a basic web UI, authentication, and authorization
+    description: A simple WebDAV server with a minimal web UI
     date:
       start: 2022-07-21
       end: 2022-08-13

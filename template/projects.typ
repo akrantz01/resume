@@ -6,10 +6,16 @@
   description: none,
   url: none,
   details: (),
+  settings: (:),
 ) = {
   let about = if description != none [ *#title*, #emph(description) ] else [ *#title* ]
   let about = if url != none {
-    let text = url.href.trim("https://", at: start).split("/").slice(1).join("/")
+    let text = if settings.at("full-links", default: false) {
+      url.href
+    } else {
+      url.href.trim("https://", at: start).split("/").slice(1).join("/")
+    }
+
     [
       #about
       #box(
@@ -34,11 +40,12 @@
   list(..details)
 }
 
-#let projects(title: "Projects", ..entries) = {
+#let projects(title: "Projects", settings: (:), ..entries) = {
   section(title)
   entries.pos().map(((title, date, ..rest)) => entry(
     title,
     date,
+    settings: settings,
     ..rest,
   )).join(v(0.25em))
 }

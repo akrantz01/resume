@@ -36,9 +36,12 @@
 
 #import "template/heading.typ": header
 #import "template/sections.typ": sections
+#import "template/settings.typ": ensure-settings
 
-#header(data.author.name, data.author.links)
-#sections(layout.sections, data)
+#let layout = ensure-settings(layout)
+
+#header(data.author.name, settings: layout.settings, links: data.author.links)
+#sections(layout, data)
 
 #place(
   bottom + center,

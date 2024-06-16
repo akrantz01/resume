@@ -1,6 +1,9 @@
 ---
 title: BCIT Co-op Resume
 
+settings:
+  full-links: true
+
 sections:
   - type: skills
     id: skills

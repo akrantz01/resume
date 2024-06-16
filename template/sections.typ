@@ -13,7 +13,9 @@
 )
 
 #let sections(layout, data) = {
-  for section in layout {
+  let settings = layout.at("settings", default: (:))
+
+  for section in layout.sections {
     let renderer = types.at(section.type)
 
     let title = section.at("title", default: none)
@@ -21,6 +23,6 @@
       title = upper(section.id.slice(0, count: 1)) + section.id.slice(1)
     }
 
-    renderer(title: title, ..data.at(section.id, default: ()))
+    renderer(title: title, settings: settings, ..data.at(section.id, default: ()))
   }
 }

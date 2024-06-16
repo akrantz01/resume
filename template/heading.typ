@@ -27,37 +27,37 @@
     #icon("phone")
     #link("tel:" + format_phone_number(phone), phone)
   ],
-  "website": (url: "https://example.com", text: none, ..) => {
-    let text = if text == none {
+  "website": (settings, url: "https://example.com", ..) => {
+    let text = if settings.full-links {
       url
     } else {
-      text
+      url.trim("https://", at: start)
     }
     box[
       #icon("website")
       #link(url, text)
     ]
   },
-  "github": (username: "john-doe", full: false, ..) => box[
+  "github": (settings, username: "john-doe", ..) => box[
     #icon("github")
-    #account_link("github.com", username, full: full)
+    #account_link("github.com", username, full: settings.full-links)
   ],
-  "linkedin": (username: "john-doe", full: false, ..) => box[
+  "linkedin": (settings, username: "john-doe", ..) => box[
     #icon("linkedin")
-    #account_link("linkedin.com/in/", username, full: full)
+    #account_link("linkedin.com/in/", username, full: settings.full-links)
   ],
 )
 
-#let header_item((type, ..item)) = box(
-  header_items.at(type)(..item),
+#let header_item((type, ..item), settings) = box(
+  header_items.at(type)(..item, settings),
 )
 
-#let header(name, items) = {
+#let header(name, settings: (:), links: ()) = {
   align(
     center,
     block[
       #text(size: 2.25em, font: "Fira Code Retina", name) \
-      #items.map(header_item).join(h(1.25em))
+      #links.map(args => header_item(args, settings)).join(h(1.25em))
     ],
   )
   v(5pt)
