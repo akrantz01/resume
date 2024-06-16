@@ -5,7 +5,7 @@
 )
 #set page(
   paper: "a4",
-  margin: (x: 0.5cm, y: 0.75cm),
+  margin: (x: 0.5cm, top: 0.75cm, bottom: 0.5em),
 )
 #set text(
   size: 8pt,
@@ -16,6 +16,7 @@
 #show link: underline
 #show link: set underline(offset: 3pt)
 
+#import "template/awards.typ": awards
 #import "template/common.typ": section
 #import "template/education.typ": education
 #import "template/experience.typ": experience
@@ -171,43 +172,25 @@
   ),
 )
 
-#section("Awards")
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (85%, 15%),
-    align(left)[ *Best Startup by YCombinator*, _TreeHacks 2023_ ],
-    align(right)[Feb 2023],
+#awards(
+  (
+    name: "Best Startup by YCombinator",
+    organization: "TreeHacks 2023",
+    on: datetime(year: 2023, month: 2, day: 19),
+    description: "Developed a web-based tool called #link(\"https://devpost.com/software/cognito-uf3rs1\")[Cognito] with a friend that uses AI combined with natural language queries to provide companies insight into their customers, audiences, potential leads using publicly available data.",
+  ),
+  (
+    name: "1st Place",
+    organization: "FrontierHacks",
+    on: datetime(year: 2019, month: 11, day: 24),
+    description: "Developed a hardware and software solution called #link(\"https://devpost.com/software/atomicnet\")[AtomicNet] to prevent internet outages in a team of 4. It uses low-cost, low-power Rasperry Pis to act as an alternative or more resilient internet, ensuring that internet outages are minimized. The software component is a suite of applications that proide basic chat, forums, and information sharing functionality.",
+  ),
+  (
+    name: "Eagle Scout",
+    organization: "Boy Scouts of America",
+    on: datetime(year: 2019, month: 1, day: 8),
   )
-  pad(left: 1em, top: -0.5em, box(width: 90%)[
-    Developed a web-based tool called #link("https://devpost.com/software/cognito-uf3rs1", "Cognito") with a 
-    friend. It is a platform that uses AI combined with natural language queries to provide companies insight 
-    into their customers, audiences, potential leads using publicly available data.
-  ])
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (85%, 15%),
-    align(left)[ *1st Place*, _FrontierHacks_ ],
-    align(right)[Nov 2019],
-  )
-  pad(left: 1em, top: -0.5em, box(width: 90%)[
-    Developed a hardware and software solution called #link("https://devpost.com/software/atomicnet")[AtomicNet] 
-    to prevent internet outages in a team of 4. The project uses low-cost, low-power Rasperry Pis to route 
-    internet traffic between each other to an internet-connected endpoint, ensuring that internet outages are 
-    minimized. The software component is a suite of applications that proide basic chat, forums, and information 
-    sharing functionality.
-  ])
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (85%, 15%),
-    align(left)[ *Eagle Scout*, _Boy Scouts of America_ ],
-    align(right)[Jan 2019],
-  )
-}
+)
 
 #section("Skills")
 #{
