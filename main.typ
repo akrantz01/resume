@@ -22,6 +22,7 @@
 #import "template/experience.typ": experience
 #import "template/heading.typ": header
 #import "template/projects.typ": projects
+#import "template/skills.typ": skills
 
 #header("Alexander Krantz", (
   ( type: "email", email: "alex@krantz.dev" ),
@@ -192,26 +193,46 @@
   )
 )
 
-#section("Skills")
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: 1fr,
-    row-gutter: 1em,
-    box[
-      *Programming Languages*:
-      Python, Rust, Go, TypeScript, Ruby, SQL, C, Java
-    ],
-    box[
-      *Frameworks & Libraries*:
-      React, Ruby on Rails, Next.js, Svelte, OpenTelemetry, Terraform
-    ],
-    box[
-      *Tools & Technologies*:
-      Amazon Web Serivces, Google Cloud Platform, Docker, Kubernetes, Linux, PostgreSQL, Redis, Git, GitHub Actions
-    ],
+#skills(
+  (
+    name: "Programming Languages",
+    skills: (
+      "Python",
+      "Rust",
+      "Go",
+      "TypeScript",
+      "Ruby",
+      "SQL",
+      "C",
+      "Java",
+    ),
+  ),
+  (
+    name: "Frameworks & Libraries",
+    skills: (
+      "React",
+      "Ruby on Rails",
+      "Next.js",
+      "Svelte",
+      "OpenTelemetry",
+      "Terraform",
+    ),
+  ),
+  (
+    name: "Tools & Technologies",
+    skills: (
+      "Amazon Web Serivces",
+      "Google Cloud Platform",
+      "Docker",
+      "Kubernetes",
+      "Linux",
+      "PostgreSQL",
+      "Redis",
+      "Git",
+      "GitHub Actions",
+    ),
   )
-}
+)
 
 #place(bottom + right, dx: 1.5em, block[
   #set text(size: 4pt, font: "Fira Code Retina")
