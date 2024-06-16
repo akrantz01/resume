@@ -20,6 +20,7 @@
 #import "template/education.typ": education
 #import "template/experience.typ": experience
 #import "template/heading.typ": header
+#import "template/projects.typ": projects
 
 #header("Alexander Krantz", (
   ( type: "email", email: "alex@krantz.dev" ),
@@ -135,46 +136,40 @@
   )
 )
 
-#section("Projects")
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (90%, 10%),
-    align(left)[ *lers*, _An asynchronous, user-friendly ACME client_ ],
-    align(right)[ May 2023 ],
-  )
-  pad(left: 1em, top: -0.5em)[Languages: Rust]
-  list(
-    "Implements the full RFC 8555 specification, including external account bindings",
-    "Provides robust, bundled challenge solvers for the HTTP-01, DNS-01, and TLS-ALPN-01 challenges",
-  )
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (90%, 10%),
-    align(left)[ *DAVOxide*, _A simple WebDAV server with a basic web UI, authentication, and authorization_ ],
-    align(right)[ Jul - Aug 2022 ],
-  )
-  pad(left: 1em, top: -0.5em)[Languages: Rust, TypeScript]
-  list(
-    "Read-only access to files through a web UI using GraphQL",
-    "Directory- and file-level permissions for each user backed by a custom authorization system",
-  )
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (88%, 12%),
-    align(left)[ *Lights*, _Internet-controlled LEDs for my dorm running on a Raspberry Pi 4_ ],
-    align(right)[ Sept - Nov 2022 ],
-  )
-  pad(left: 1em, top: -0.5em)[Languages: Rust, Golang, TypeScript]
-  list(
-    "Real-time control and viewing from anywhere in the world using WebSockets and Redux.",
-    "Implemented presets, schedules, and custom animations using WebAssembly modules.",
-  )
-}
+#projects(
+  (
+    title: "lers",
+    description: "An asynchronous, user-friendly ACME client written in Rust",
+    start: datetime(year: 2023, month: 3, day: 14),
+    end: datetime(year: 2023, month: 3, day: 30),
+    details: (
+      "Implements the full RFC 8555 specification, including external account bindings.",
+      "Provides robust, bundled challenge solvers for the HTTP-01, DNS-01, and TLS-ALPN-01 challenges.",
+    ),
+  ),
+  (
+    title: "DAVOxide",
+    description: "A simple WebDAV server with a basic web UI, authentication, and authorization",
+    start: datetime(year: 2022, month: 7, day: 21),
+    end: datetime(year: 2022, month: 8, day: 13),
+    details: (
+      "A Rust-based class 1 WebDAV server implementing all required features of RFC 4918",
+      "Read-only access to files through a web UI using GraphQL written in TypeScript using React.",
+      "Directory- and file-level permissions for each user using an SSO proxy for authentication and database for authorization.",
+    ),
+  ),
+  (
+    title: "Lights",
+    description: "Internet-controlled LEDs for my dorm running on a Raspberry Pi 4",
+    start: datetime(year: 2021, month: 9, day: 30),
+    end: datetime(year: 2022, month: 4, day: 3),
+    details: (
+      "Drives a strip of Adafruit NeoPixels with a Rasperry Pi 4 through a Rust-based library for GPIO control.",
+      "Real-time control and viewing from anywhere in the world using Cloudflare Tunnels, a Golang-powered WebSockets server, and client-side synchronization through React and Redux.",
+      "Implemented presets, schedules, and custom animations with WebAssembly modules loaded and executed on-demand.",
+    ),
+  ),
+)
 
 #section("Awards")
 #{
