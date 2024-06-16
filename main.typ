@@ -41,7 +41,7 @@
 #sections(layout.sections, data)
 
 #place(
-  bottom + right,
+  bottom + center,
   dx: 1.5em,
   block[
     #set text(size: 4pt, font: "Fira Code Retina")
