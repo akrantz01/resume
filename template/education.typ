@@ -1,4 +1,4 @@
-#import "common.typ": section
+#import "common.typ": date-range, section
 
 #let entry(school, start, end, degree: none, area: none, location: none, gpa: none, courses: (), ..body) = {
   if area != none and degree == none {
@@ -28,7 +28,7 @@
       ]
     ],
     align(right)[
-      #start.display("[month repr:short] [year]") - #end.display("[month repr:short] [year]") \
+      #date-range(start, end) \
       #if location != none { emph(location) }
     ],
   )
