@@ -46,8 +46,8 @@
     school: "University of British Columbia",
     degree: "Bachelor's of Applied Science",
     area: "Electrical Engineering (unfinished)",
-    start: datetime(year: 2020, month: 9, day: 1),
-    end: datetime(year: 2023, month: 12, day: 31),
+    start: datetime(year: 2020, month: 9, day: 8),
+    end: datetime(year: 2023, month: 12, day: 23),
     location: "Vancouver, BC, Canada",
     courses: (
       "Introduction to Microcomputers",
