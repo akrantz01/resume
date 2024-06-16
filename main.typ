@@ -35,20 +35,24 @@
     start: datetime(year: 2024, month: 1, day: 8),
     end: datetime(year: 2026, month: 4, day: 30),
     location: "Vancouver, BC, Canada",
-    details: (
-      "GPA: 93%",
-      "Coursework: Web Development I & II, Programming Methods, Business Analysis and System Design",
+    gpa: "93%",
+    courses: (
+      "Web Development I & II",
+      "Programming Methods",
+      "Business Analysis and System Design",
     ),
   ),
   (
     school: "University of British Columbia",
     degree: "Bachelor's of Applied Science",
-    area: "Electrical Engineering",
+    area: "Electrical Engineering (unfinished)",
     start: datetime(year: 2020, month: 9, day: 1),
     end: datetime(year: 2023, month: 12, day: 31),
     location: "Vancouver, BC, Canada",
-    details: (
-      "Major: Electrical Engineering (unfinished)",
+    courses: (
+      "Introduction to Microcomputers",
+      "Data Structures and Algorithms",
+      "Symbolic Logic",
     ),
   )
 )

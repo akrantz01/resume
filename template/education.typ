@@ -1,6 +1,6 @@
 #import "common.typ": section
 
-#let entry(school, start, end, degree: none, area: none, location: none, ..body) = {
+#let entry(school, start, end, degree: none, area: none, location: none, gpa: none, courses: (), ..body) = {
   if area != none and degree == none {
     panic("An area of study must be accompanied by a degree")
   }
@@ -20,7 +20,12 @@
     columns: (80%, 20%),
     align(left)[
       #about \
-      #if body.len() > 0 { pad(left: 1em)[ #body.join(parbreak()) ] }
+      #pad(left: 1em)[
+        #if gpa != none [ #text(weight: "medium")[GPA]: #gpa \ ]
+        #if courses.len() > 0 [
+          #text(weight: "medium")[Courses]: #courses.join(", ")
+        ]
+      ]
     ],
     align(right)[
       #start.display("[month repr:short] [year]") - #end.display("[month repr:short] [year]") \
@@ -33,6 +38,6 @@
   section(title)
   entries
     .pos()
-    .map(((school, start, end, details, ..rest)) => entry(school, start, end, ..rest, ..details))
+    .map(((school, start, end, ..rest)) => entry(school, start, end, ..rest))
     .join(v(0.25em))
 }
