@@ -1,11 +1,21 @@
 #import "common.typ": date-range, section
 
-#let entry(company, title, date, location: none, highlights: ()) = {
+#let entry(company, title, date, location: none, url: none, highlights: (), settings: (:)) = {
+  let link = if url != none {
+    let text = if settings.full-links {
+      url
+    } else {
+      url.trim("https://", at: start)
+    }
+
+    "(" + link(url, text) + ")"
+  }
+
   set block(above: 0.7em, below: 1em)
   grid(
     columns: (80%, 20%),
     align(left)[
-      #strong(company), #emph(title) \
+      #strong(company), #emph(title) #link \
       #list(..highlights)
     ],
     align(right)[
@@ -17,12 +27,13 @@
   )
 }
 
-#let experience(title: "Experience", ..entries) = {
+#let experience(title: "Experience", settings: (:), ..entries) = {
   section(title)
   entries.pos().map(((company, title, date, ..rest)) => entry(
     company,
     title,
     date,
+    settings: settings,
     ..rest,
   )).join(v(0.25em))
 }

@@ -120,6 +120,7 @@ volunteering:
     date:
       start: 2021-02-01
     location: Remote US & Canada
+    url: https://wafflehacks.org
     highlights:
       - >-
         Developed and deployed a custom application portal using Python and TypeScript that was
