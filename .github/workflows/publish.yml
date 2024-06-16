@@ -50,16 +50,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/download-artifact@v4
-        with:
-          path: resumes/
 
       - name: Prevent unnecessary directory nesting
         run: |
-          ls -R resumes/
-          find resumes/ -type f -exec mv {} ../ \;
-          ls -R resumes/
-          find resumes/ -type d -name '*.pdf' -delete
-          ls -R resumes/
+          set -x
+          mkdir resumes
+          find . -type f -name '*.pdf' -exec mv {} resumes/ \;
+          ls resumes
 
       - run: aws s3 cp resumes/ s3://resumes --recursive
         env:
