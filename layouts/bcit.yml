@@ -1,0 +1,21 @@
+---
+title: BCIT Co-op Resume
+
+sections:
+  - type: skills
+    id: skills
+
+  - type: experience
+    id: experience
+
+  - type: projects
+    id: projects
+
+  - type: education
+    id: education
+
+  - type: experience
+    id: volunteering
+
+  - type: awards
+    id: awards
