@@ -1,11 +1,10 @@
 #import "common.typ": date-range, section
 
-#let entry(school, start, end, degree: none, area: none, location: none, gpa: none, courses: (), ..body) = {
+#let entry(school, start, end, degree: none, area: none, location: none, gpa: none, courses: ()) = {
   if area != none and degree == none {
     panic("An area of study must be accompanied by a degree")
   }
 
-  let body = body.pos()
   let about = if degree != none [
     #strong(school),
     #emph(

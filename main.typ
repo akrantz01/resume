@@ -17,7 +17,7 @@
 #show link: set underline(offset: 3pt)
 
 #import "template/common.typ": section
-#import "template/education.typ": entry, education
+#import "template/education.typ": education
 #import "template/heading.typ": header
 
 #header("Alexander Krantz", (
