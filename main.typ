@@ -16,6 +16,8 @@
 #show link: underline
 #show link: set underline(offset: 3pt)
 
+#import "template/common.typ": section
+#import "template/education.typ": entry, education
 #import "template/heading.typ": header
 
 #header("Alexander Krantz", (
@@ -26,55 +28,32 @@
   ( type: "linkedin", username: "akrantz01" ),
 ))
 
-#let section_heading(title) = {
-  show heading: set text(size: 0.92em, weight: "bold")
-
-  block[
-    = #smallcaps(title)
-    #v(-2pt)
-    #line(length: 100%, stroke: 2pt + black)
-  ]
-}
-
-#section_heading("Education")
-#{
-  set block(above: 0.7em)
-  grid(
-    columns: (80%, 20%),
-    align(left)[
-      *British Columbia Institute of Technology*,
-      _Computer System Technology Diploma_ \
-      #pad(left: 1em)[
-        GPA: 93% \
-        Coursework: Web Development I & II, Programming Methods, Business Analysis and System Design
-      ]
-    ],
-    align(right)[
-      Jan 2024 - Apr 2026 \
-      _Vancouver, BC, Canada_
-    ]
+#education(
+  (
+    school: "British Columbia Institute of Technology",
+    degree: "Computer System Technology Diploma",
+    start: datetime(year: 2024, month: 1, day: 8),
+    end: datetime(year: 2026, month: 4, day: 30),
+    location: "Vancouver, BC, Canada",
+    details: (
+      "GPA: 93%",
+      "Coursework: Web Development I & II, Programming Methods, Business Analysis and System Design",
+    ),
+  ),
+  (
+    school: "University of British Columbia",
+    degree: "Bachelor's of Applied Science",
+    area: "Electrical Engineering",
+    start: datetime(year: 2020, month: 9, day: 1),
+    end: datetime(year: 2023, month: 12, day: 31),
+    location: "Vancouver, BC, Canada",
+    details: (
+      "Major: Electrical Engineering (unfinished)",
+    ),
   )
-  v(0.25em)
-}
-#{
-  set block(above: 0.7em)
-  grid(
-    columns: (83%, 17%),
-    align(left)[
-      *University of British Columbia*,
-      _Bachelor's of Applied Science_ \
-      #pad(left: 1em)[
-        Major: Electrical Engineering (unfinished)
-      ]
-    ],
-    align(right)[
-      Sept 2020 - Dec 2023 \
-      _Vancouver, BC, Canada_
-    ]
-  )
-}
+)
 
-#section_heading("Experience")
+#section("Experience")
 #{
   set block(above: 0.7em, below: 1em)
   grid(
@@ -165,7 +144,7 @@
   )
 }
 
-#section_heading("Volunteering")
+#section("Volunteering")
 #{
   set block(above: 0.7em, below: 1em)
   grid(
@@ -185,7 +164,7 @@
   )
 }
 
-#section_heading("Projects")
+#section("Projects")
 #{
   set block(above: 0.7em, below: 1em)
   grid(
@@ -226,7 +205,7 @@
   )
 }
 
-#section_heading("Awards")
+#section("Awards")
 #{
   set block(above: 0.7em, below: 1em)
   grid(
@@ -264,7 +243,7 @@
   )
 }
 
-#section_heading("Skills")
+#section("Skills")
 #{
   set block(above: 0.7em, below: 1em)
   grid(
