@@ -53,6 +53,11 @@ jobs:
         with:
           path: resumes/
 
+      - name: Prevent unnecessary directory nesting
+        run: |
+          find resumes/ -type f -exec mv {} ../ \;
+          find resumes/ -type d -name '*.pdf' -delete
+
       - run: aws s3 cp resumes/ s3://resumes --recursive
         env:
           AWS_REGION: auto
