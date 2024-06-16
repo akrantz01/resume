@@ -32,7 +32,9 @@ jobs:
         id: compile
         run: |
           output=$(sed -e "s/yml/pdf/" -e "s/yaml/pdf/" <<< "${{ matrix.layout }}")
-          typst compile --input layout=layouts/${{ matrix.layout }} main.typ $output
+          typst compile main.typ $output \
+            --input layout=layouts/${{ matrix.layout }} \
+            --font-path ./fonts
 
           echo "name=$output" >> "$GITHUB_OUTPUT"
 
