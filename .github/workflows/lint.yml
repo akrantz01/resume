@@ -1,0 +1,30 @@
+---
+name: Lint
+
+"on": [push]
+
+jobs:
+  typst:
+    name: Typst
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install typstfmt
+        run: |
+          wget \
+            -O typstyle \
+            https://github.com/Enter-tainer/typstyle/releases/download/v0.11.26/typstyle-linux-x64
+          chmod +x typstyle
+          sudo mv typstyle /usr/local/bin
+
+      - run: typstyle format-all
+      - name: Check for changes
+        run: find . -name '*.typ' -print0 | xargs -0 git diff --exit-code HEAD
+
+  yaml:
+    name: YAML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx install yamllint
+      - run: yamllint -s -f github .
