@@ -47,18 +47,15 @@ jobs:
     name: Upload
     runs-on: ubuntu-latest
     needs: [compile]
-    env:
-      AWS_ENDPOINT_URL_S3: ${{ secrets.AWS_ENDPOINT_URL_S3 }}
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: auto
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID}}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
       - uses: actions/download-artifact@v4
         with:
           path: resumes/
 
       - run: aws s3 cp resumes/ s3://bucket/
+        env:
+          AWS_REGION: auto
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ENDPOINT_URL_S3: ${{ secrets.AWS_ENDPOINT_URL_S3 }}
