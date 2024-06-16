@@ -18,6 +18,7 @@
 
 #import "template/common.typ": section
 #import "template/education.typ": education
+#import "template/experience.typ": experience
 #import "template/heading.typ": header
 
 #header("Alexander Krantz", (
@@ -57,116 +58,82 @@
   )
 )
 
-#section("Experience")
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (80%, 20%),
-    align(left)[
-      *Sanctuary AI*, _Systems Integration Intern_ \
-      #list(
-        "Declaratively created a collection of continuous deployment pipelines on AWS to deploy two services across multiple accounts, ensuring the separation of environments using AWS CDK and CodePipelines.",
-        "Removed all usages of static AWS credentials in favor of assume role credentials to increase security.",
-        "Reduced the size of a service's container by 85% and sped up its startup time by 100 times.",
-      )
-    ],
-    align(right)[
-      Sept - Dec 2023 \
-      _Vancouver, BC, Canada_
-    ],
+#experience(
+  (
+    company: "Sanctuary AI",
+    title: "Systems Integration Intern",
+    start: datetime(year: 2023, month: 9, day: 1),
+    end: datetime(year: 2023, month: 12, day: 31),
+    location: "Vancouver, BC, Canada",
+    highlights: (
+      "Declaratively created a collection of continuous deployment pipelines on AWS to deploy two services across multiple accounts, ensuring the separation of environments using AWS CDK and CodePipelines.",
+      "Removed all usages of static AWS credentials in favor of assume role credentials to increase security.",
+      "Reduced the size of a service's container by 85% and sped up its startup time by 100 times.",
+    ),
+  ),
+  (
+    company: "Shopify",
+    title: "Payments Infrastructure, Backend Developer Intern",
+    start: datetime(year: 2023, month: 5, day: 1),
+    end: datetime(year: 2023, month: 8, day: 31),
+    location: "Vancouver, BC, Canada",
+    highlights: (
+      "Made a parameter optional across the service to reduce data duplication and streamline usage for clients.",
+      "Assisted in preparing the service for scaling to Black Friday/Cyber Monday traffic spikes by performing load tests and validating and updating Grafana alerts.",
+      "Prevented potential fines from NACHA by handling account errors in ACH return transaction processing.",
+    ),
+  ),
+  (
+    company: "Shuttle",
+    title: "Open Source Contractor",
+    start: datetime(year: 2022, month: 10, day: 1),
+    end: datetime(year: 2023, month: 2, day: 28),
+    location: "Vancouver, BC, Canada",
+    highlights: (
+      "Discovered a vulnerability that allowed remote code execution and full database access via SQL injection.",
+      "Designed and implemented a system that issues TLS certificates for custom domains using LetsEncrypt.",
+    ),
+  ),
+  (
+    company: "Shopify",
+    title: "Shopify Fulfillment Network, Backend Developer Intern",
+    start: datetime(year: 2022, month: 5, day: 1),
+    end: datetime(year: 2022, month: 8, day: 31),
+    location: "Redwood City, CA, USA",
+    highlights: (
+      "Minimized shipping time for packages by selecting carriers based on historical performance data.",
+      "Improved error handling for parcel carriers not supporting tracking created labels.",
+      "Added strict typing to the codebase using Sorbet to improve developer experience and prevent errors.",
+    ),
+  ),
+  (
+    company: "InfluxData",
+    title: "Software Engineering Intern",
+    start: datetime(year: 2021, month: 5, day: 1),
+    end: datetime(year: 2021, month: 9, day: 30),
+    location: "Redwood City, CA, USA",
+    highlights: (
+      "Maintained an open-source data acquisition tool called Telegraf written in Go.",
+      "Implemented upwards of 25 bug fixes and features concerning Telegraf's interaction with databases, cloud services, and deployment solutions.",
+      "Interacted with community developers to resolve issues and pull requests on GitHub.",
+    ),
   )
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (80%, 20%),
-    align(left)[
-      *Shopify*, _Payments Infrastructure, Backend Developer Intern_ \
-      #list(
-        "Made a parameter optional across the service to reduce data duplication and streamline usage for clients.",
-        "Assisted in preparing the service for scaling to Black Friday/Cyber Monday traffic spikes by performing load tests and validating and updating Grafana alerts.",
-        "Prevented potential fines from NACHA by handling account errors in ACH return transaction processing.",
-      )
-    ],
-    align(right)[
-      May - Aug 2023 \
-      _Vancouver, BC, Canada_
-    ],
-  )
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (80%, 20%),
-    align(left)[
-      *Shuttle*, _Open Source Contractor_ \
-      #list(
-        "Discovered a vulnerability that allowed remote code execution and full database access via SQL injection.",
-        "Designed and implemented a system that issues TLS certificates for custom domains using LetsEncrypt.",
-      )
-    ],
-    align(right)[
-      Oct 2022 - Feb 2023 \
-      _Vancouver, BC, Canada_
-    ],
-  )
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (80%, 20%),
-    align(left)[
-      *Shopify*, _Shopify Fulfillment Network, Backend Developer Intern_ \
-      #list(
-        "Minimized shipping time for packages by selecting carriers based on historical performance data.",
-        "Improved error handling for parcel carriers not supporting tracking created labels.",
-        "Added strict typing to the codebase using Sorbet to improve developer experience and prevent errors.",
-      )
-    ],
-    align(right)[
-      May - Aug 2022 \
-      _Redwood City, CA, USA_
-    ],
-  )
-}
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (80%, 20%),
-    align(left)[
-      *InfluxData*, _Software Engineering Intern_ \
-      #list(
-        "Maintained an open-source data acquisition tool called Telegraf written in Go.",
-        "Implemented upwards of 25 bug fixes and features concerning Telegraf's interaction with databases, cloud services, and deployment solutions.",
-        "Interacted with community developers to resolve issues and pull requests on GitHub.",
-      )
-    ],
-    align(right)[
-      May - Sept 2021 \
-      _Redwood City, CA, USA_
-    ],
-  )
-}
+)
 
-#section("Volunteering")
-#{
-  set block(above: 0.7em, below: 1em)
-  grid(
-    columns: (3fr, 1fr),
-    align(left)[
-      *WaffleHacks*, _Director of Technology_ \
-      #list(
-        "Developed and deployed a custom application portal using Python and TypeScript that was utilized by 1000s of participants over 4 events.",
-        "Leveraged OpenTelemetry for distributed tracing to reduce P99 latency by 250ms and detect issues and service disruptions via configured alerting.",
-        "Coordinated a team of 4 developers to build an application portal, Discord bot, and website.",
-      )
-    ],
-    align(right)[
-      Feb 2021 - present \
-      _Remote US & Canada_
-    ],
+#experience(
+  title: "Volunteering",
+  (
+    company: "WaffleHacks",
+    title: "Director of Technology",
+    start: datetime(year: 2021, month: 2, day: 1),
+    location: "Remote US & Canada",
+    highlights: (
+      "Developed and deployed a custom application portal using Python and TypeScript that was utilized by 1000s of participants over 4 events.",
+      "Leveraged OpenTelemetry for distributed tracing to reduce P99 latency by 250ms and detect issues and service disruptions via configured alerting.",
+      "Coordinated a team of 4 developers to build an application portal, Discord bot, and website.",
+    ),
   )
-}
+)
 
 #section("Projects")
 #{
