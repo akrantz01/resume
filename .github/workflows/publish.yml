@@ -53,7 +53,7 @@ jobs:
         with:
           path: resumes/
 
-      - run: aws s3 cp resumes/ s3://bucket/
+      - run: aws s3 cp resumes/ s3://resumes --recursive
         env:
           AWS_REGION: auto
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
