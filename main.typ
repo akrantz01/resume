@@ -1,9 +1,11 @@
-#let data = {
-  if sys.inputs.at("path", default: none) == none {
-    panic("No path to data provided")
+#let data = yaml("data.yml")
+#let layout = {
+  let value = sys.inputs.at("layout", default: none)
+  if value == none {
+    panic("Missing layout specification in input, set using --input layout=...")
   }
 
-  yaml(sys.inputs.path)
+  yaml(value)
 }
 #let author = {
   let value = data.author.links.find(link => link.type == "email")
@@ -15,7 +17,7 @@
 }
 
 #set document(
-  title: data.title,
+  title: layout.title,
   author: author,
   keywords: ("resume", "cv"),
 )
@@ -36,7 +38,7 @@
 #import "template/sections.typ": sections
 
 #header(data.author.name, data.author.links)
-#sections(data.sections)
+#sections(layout.sections, data)
 
 #place(bottom + right, dx: 1.5em, block[
   #set text(size: 4pt, font: "Fira Code Retina")

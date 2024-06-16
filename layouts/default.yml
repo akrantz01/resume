@@ -1,0 +1,21 @@
+---
+title: My Resume
+
+sections:
+  - type: education
+    id: education
+
+  - type: experience
+    id: experience
+
+  - type: experience
+    id: volunteering
+
+  - type: projects
+    id: projects
+
+  - type: awards
+    id: awards
+
+  - type: skills
+    id: skills

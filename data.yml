@@ -1,6 +1,4 @@
 ---
-title: My Resume
-
 author:
   name: Alexander Krantz
   links:
@@ -16,7 +14,7 @@ author:
     - type: linkedin
       username: akrantz01
 
-education: &education
+education:
   - school: British Columbia Institute of Technology
     degree: Computer Systems Technology
     start: 2024-01-08
@@ -39,7 +37,7 @@ education: &education
       - Data Structures and Algorithms
       - Symbolic Logic
 
-experience: &experience
+experience:
   - company: Sanctuary AI
     title: Systems Integration Intern
     start: 2023-09-01
@@ -110,7 +108,7 @@ experience: &experience
         databases, cloud services, and deployment solutions.
       - Interacted with community developers to resolve issues and pull requests on GitHub.
 
-volunteering: &volunteering
+volunteering:
   - company: WaffleHacks
     title: Directory of Technology
     start: 2021-02-01
@@ -126,7 +124,7 @@ volunteering: &volunteering
         Coordinated a team of 4 developers to build an application portal, Discord bot, and
         website.
 
-projects: &projects
+projects:
   - title: lers
     description: An asynchronous, user-friendly ACME client written in Rust
     start: 2023-03-14
@@ -163,7 +161,7 @@ projects: &projects
         Implemented presets, schedules, and custom animations with WebAssembly modules loaded and
         executed on-demand.
 
-awards: &awards
+awards:
   - name: Best Startup by YCombinator
     organization: TreeHacks 2023
     on: 2023-02-19
@@ -187,7 +185,7 @@ awards: &awards
     organization: Boy Scouts of America
     on: 2019-01-08
 
-skills: &skills
+skills:
   programming-languages:
     - Python
     - Rust
@@ -214,23 +212,3 @@ skills: &skills
     - Redis
     - Git
     - GitHub Actions
-
-sections:
-  - type: education
-    title: Education
-    arguments: *education
-  - type: experience
-    title: Experience
-    arguments: *experience
-  - type: experience
-    title: Volunteering
-    arguments: *volunteering
-  - type: projects
-    title: Projects
-    arguments: *projects
-  - type: awards
-    title: Awards
-    arguments: *awards
-  - type: skills
-    title: Skills
-    arguments: *skills
