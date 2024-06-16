@@ -1,0 +1,10 @@
+---
+yaml-files:
+  - "*.yaml"
+  - "*.yml"
+
+rules:
+  anchors: disable
+  line-length:
+    max: 100
+    level: warning

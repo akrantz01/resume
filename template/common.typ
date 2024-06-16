@@ -8,7 +8,30 @@
   ]
 }
 
+#let parse-date(raw) = {
+  if raw == none {
+    return none
+  } else if type(raw) == datetime {
+    return raw
+  }
+
+  let parts = raw.split("-")
+  if parts.len() != 3 {
+    panic("Invalid date format")
+  }
+
+  let year = int(parts.at(0))
+  let month = int(parts.at(1))
+  let day = int(parts.at(2, default: 15))
+
+  datetime(year: year, month: month, day: day)
+
+}
+
 #let date-range(start, end) = {
+  let start = parse-date(start)
+  let end = parse-date(end)
+
   if end == none [
     #start.display("[month repr:short] [year]") - Present
   ] else if start > end {

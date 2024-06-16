@@ -1,6 +1,8 @@
-#import "common.typ": date-range, section
+#import "common.typ": date-range, parse-date, section
 
 #let entry(name, organization, on, description: none) = {
+  let on = parse-date(on)
+
   set block(above: 0.7em, below: 1em)
   grid(
     columns: (85%, 15%),
