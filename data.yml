@@ -17,8 +17,9 @@ author:
 education:
   - school: British Columbia Institute of Technology
     degree: Computer Systems Technology
-    start: 2024-01-08
-    end: 2026-04-30
+    date:
+      start: 2024-01-08
+      end: 2026-04-30
     location: Vancouver, BC, Canada
     gpa: 93%
     courses:
@@ -29,8 +30,9 @@ education:
   - school: University of British Columbia
     degree: Bachelor of Applied Science
     area: Electrical Engineering (unfinished)
-    start: 2020-09-08
-    end: 2023-12-23
+    date:
+      start: 2020-09-08
+      end: 2023-12-23
     location: Vancouver, BC, Canada
     courses:
       - Introduction to Microcomputers
@@ -40,8 +42,9 @@ education:
 experience:
   - company: Sanctuary AI
     title: Systems Integration Intern
-    start: 2023-09-01
-    end: 2023-12-31
+    date:
+      start: 2023-09-01
+      end: 2023-12-31
     location: Vancouver, BC, Canada
     highlights:
       - >-
@@ -55,8 +58,9 @@ experience:
 
   - company: Shopify
     title: Payments Infrastructure, Backend Developer Intern
-    start: 2023-05-01
-    end: 2023-08-31
+    date:
+      start: 2023-05-01
+      end: 2023-08-31
     location: Vancouver, BC, Canada
     highlights:
       - >-
@@ -71,8 +75,9 @@ experience:
 
   - company: Shuttle
     title: Open Source Contractor
-    start: 2022-10-01
-    end: 2023-02-28
+    date:
+      start: 2022-10-01
+      end: 2023-02-28
     location: Vancouver, BC, Canada
     highlights:
       - >-
@@ -84,8 +89,9 @@ experience:
 
   - company: Shopify
     title: Shopify Fulfillment Network, Backend Developer Intern
-    start: 2022-05-01
-    end: 2022-08-31
+    date:
+      start: 2022-05-01
+      end: 2022-08-31
     location: Redwood City, CA, USA
     highlights:
       - >-
@@ -98,8 +104,9 @@ experience:
 
   - company: InfluxData
     title: Software Engineering Intern
-    start: 2021-05-01
-    end: 2021-09-30
+    date:
+      start: 2021-05-01
+      end: 2021-09-30
     location: Redwood City, CA, USA
     highlights:
       - Maintained an open-source data acquisition tool called Telegraf written in Go.
@@ -111,7 +118,8 @@ experience:
 volunteering:
   - company: WaffleHacks
     title: Directory of Technology
-    start: 2021-02-01
+    date:
+      start: 2021-02-01
     location: Remote US & Canada
     highlights:
       - >-
@@ -127,8 +135,9 @@ volunteering:
 projects:
   - title: lers
     description: An asynchronous, user-friendly ACME client written in Rust
-    start: 2023-03-14
-    end: 2023-03-30
+    date:
+      start: 2023-03-14
+      end: 2023-03-30
     url:
       type: github
       href: https://github.com/akrantz01/lers
@@ -140,8 +149,9 @@ projects:
 
   - title: DAVOxide
     description: A simple WebDAV server with a basic web UI, authentication, and authorization
-    start: 2022-07-21
-    end: 2022-08-13
+    date:
+      start: 2022-07-21
+      end: 2022-08-13
     url:
       type: github
       href: https://github.com/akrantz01/davoxide
@@ -154,8 +164,9 @@ projects:
 
   - title: Lights
     description: Internet-controlled LEDs for my dorm running on a Raspberry Pi 4
-    start: 2021-09-30
-    end: 2022-04-03
+    date:
+      start: 2021-09-30
+      end: 2022-04-03
     url:
       type: github
       href: https://github.com/akrantz01/lights

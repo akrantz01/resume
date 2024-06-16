@@ -2,8 +2,7 @@
 
 #let entry(
   school,
-  start,
-  end,
+  date,
   degree: none,
   area: none,
   location: none,
@@ -38,7 +37,7 @@
       ]
     ],
     align(right)[
-      #date-range(start, end) \
+      #date-range(date) \
       #if location != none {
         emph(location)
       }
@@ -48,10 +47,9 @@
 
 #let education(title: "Education", ..entries) = {
   section(title)
-  entries.pos().map(((school, start, end, ..rest)) => entry(
+  entries.pos().map(((school, date, ..rest)) => entry(
     school,
-    start,
-    end,
+    date,
     ..rest,
   )).join(v(0.25em))
 }

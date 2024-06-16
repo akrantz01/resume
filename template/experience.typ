@@ -1,6 +1,6 @@
 #import "common.typ": date-range, section
 
-#let entry(company, title, start, end: none, location: none, highlights: ()) = {
+#let entry(company, title, date, location: none, highlights: ()) = {
   set block(above: 0.7em, below: 1em)
   grid(
     columns: (80%, 20%),
@@ -9,7 +9,7 @@
       #list(..highlights)
     ],
     align(right)[
-      #date-range(start, end) \
+      #date-range(date) \
       #if location != none {
         emph(location)
       }
@@ -19,10 +19,10 @@
 
 #let experience(title: "Experience", ..entries) = {
   section(title)
-  entries.pos().map(((company, title, start, ..rest)) => entry(
+  entries.pos().map(((company, title, date, ..rest)) => entry(
     company,
     title,
-    start,
+    date,
     ..rest,
   )).join(v(0.25em))
 }

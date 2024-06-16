@@ -1,13 +1,11 @@
-#import "common.typ": date-range, parse-date, section
+#import "common.typ": format-date, parse-date, section
 
 #let entry(name, organization, on, description: none) = {
-  let on = parse-date(on)
-
   set block(above: 0.7em, below: 1em)
   grid(
     columns: (85%, 15%),
     align(left)[#strong(name), #emph(organization)],
-    align(right)[#on.display("[month repr:short] [year]")],
+    align(right, format-date(on)),
   )
   if description != none {
     pad(

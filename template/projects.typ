@@ -2,15 +2,14 @@
 
 #let entry(
   title,
-  start,
+  date,
   description: none,
   url: none,
-  end: none,
   details: (),
 ) = {
   let about = if description != none [ *#title*, #emph(description) ] else [ *#title* ]
   let about = if url != none {
-    let text = url.href.trim("https://").split("/").slice(1).join("/")
+    let text = url.href.trim("https://", at: start).split("/").slice(1).join("/")
     [
       #about
       #box(
@@ -30,16 +29,16 @@
   set block(above: 0.7em, below: 1em)
   grid(
     columns: (85%, 15%),
-    align(left, about), align(right, date-range(start, end)),
+    align(left, about), align(right, date-range(date)),
   )
   list(..details)
 }
 
 #let projects(title: "Projects", ..entries) = {
   section(title)
-  entries.pos().map(((title, start, ..rest)) => entry(
+  entries.pos().map(((title, date, ..rest)) => entry(
     title,
-    start,
+    date,
     ..rest,
   )).join(v(0.25em))
 }

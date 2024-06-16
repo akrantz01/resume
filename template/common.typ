@@ -16,12 +16,10 @@
 #let parse-date(raw) = {
   if raw == none {
     return none
-  } else if type(raw) == datetime {
-    return raw
   }
 
   let parts = raw.split("-")
-  if parts.len() != 3 {
+  if parts.len() < 2 {
     panic("Invalid date format")
   }
 
@@ -32,21 +30,36 @@
   datetime(year: year, month: month, day: day)
 }
 
-#let date-range(start, end) = {
-  let start = parse-date(start)
-  let end = parse-date(end)
+#let format-date(date, year: true) = {
+  if date == none {
+    return none
+  } else if type(date) != datetime {
+    date = parse-date(date)
+  }
+
+  let format = "[month repr:short]"
+  if year {
+    format += " [year]"
+  }
+
+  date.display(format)
+}
+
+#let date-range(range) = {
+  let start = parse-date(range.start)
+  let end = parse-date(range.at("end", default: none))
 
   if end == none [
-    #start.display("[month repr:short] [year]") - Present
+    #format-date(start) - Present
   ] else if start > end {
     panic("Start date is after end date")
   } else if start.year() == end.year() {
     if start.month() == end.month() {
-      start.display("[month repr:short] [year]")
+      format-date(start)
     } else [
-      #start.display("[month repr:short]") - #end.display("[month repr:short] [year]")
+      #format-date(start, year: false) - #format-date(end)
     ]
   } else [
-    #start.display("[month repr:short] [year]") - #end.display("[month repr:short] [year]")
+    #format-date(start) - #format-date(end)
   ]
 }
