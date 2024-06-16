@@ -1,17 +1,20 @@
 #import "common.typ": icon
 
 #let format_phone_number(phone) = {
-  if phone.starts-with("+") == false { panic("Phone number must start with a country code") }
+  if phone.starts-with("+") == false {
+    panic("Phone number must start with a country code")
+  }
 
-  "+" + phone
-    .split(regex("[^0-9]+"))
-    .filter(part => part.len() > 0)
-    .join("-")
+  "+" + phone.split(regex("[^0-9]+")).filter(part => part.len() > 0).join("-")
 }
 
 #let account_link(base, identifier, full: false) = {
   let base = base.trim("/", at: end) + "/" + identifier
-  let text = if full { base } else { identifier }
+  let text = if full {
+    base
+  } else {
+    identifier
+  }
   link("https://" + base, text)
 }
 
@@ -25,7 +28,11 @@
     #link("tel:" + format_phone_number(phone), phone)
   ],
   "website": (url: "https://example.com", text: none, ..) => {
-    let text = if text == none { url } else { text }
+    let text = if text == none {
+      url
+    } else {
+      text
+    }
     box[
       #icon("website")
       #link(url, text)
@@ -41,14 +48,17 @@
   ],
 )
 
-#let header_item(( type, ..item )) = box(
-  header_items.at(type)(..item)
+#let header_item((type, ..item)) = box(
+  header_items.at(type)(..item),
 )
 
 #let header(name, items) = {
-  align(center, block[
-    #text(size: 2.25em, font: "Fira Code Retina", name) \
-    #items.map(header_item).join(h(1.25em))
-  ])
+  align(
+    center,
+    block[
+      #text(size: 2.25em, font: "Fira Code Retina", name) \
+      #items.map(header_item).join(h(1.25em))
+    ],
+  )
   v(5pt)
 }

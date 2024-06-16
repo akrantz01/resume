@@ -8,7 +8,10 @@
   ]
 }
 
-#let icon(name) = box(height: 9pt, move(dx: -2pt, dy: 2pt, image("icons/" + name + ".svg")))
+#let icon(name) = box(
+  height: 9pt,
+  move(dx: -2pt, dy: 2pt, image("icons/" + name + ".svg")),
+)
 
 #let parse-date(raw) = {
   if raw == none {
@@ -27,7 +30,6 @@
   let day = int(parts.at(2, default: 15))
 
   datetime(year: year, month: month, day: day)
-
 }
 
 #let date-range(start, end) = {

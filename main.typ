@@ -40,7 +40,11 @@
 #header(data.author.name, data.author.links)
 #sections(layout.sections, data)
 
-#place(bottom + right, dx: 1.5em, block[
-  #set text(size: 4pt, font: "Fira Code Retina")
-  Last updated on #datetime.today().display()
-])
+#place(
+  bottom + right,
+  dx: 1.5em,
+  block[
+    #set text(size: 4pt, font: "Fira Code Retina")
+    Last updated on #datetime.today().display()
+  ],
+)

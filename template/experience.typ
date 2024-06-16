@@ -10,15 +10,19 @@
     ],
     align(right)[
       #date-range(start, end) \
-      #if location != none { emph(location) }
+      #if location != none {
+        emph(location)
+      }
     ],
   )
 }
 
 #let experience(title: "Experience", ..entries) = {
   section(title)
-  entries
-    .pos()
-    .map(((company, title, start, ..rest)) => entry(company, title, start, ..rest))
-    .join(v(0.25em))
+  entries.pos().map(((company, title, start, ..rest)) => entry(
+    company,
+    title,
+    start,
+    ..rest,
+  )).join(v(0.25em))
 }
