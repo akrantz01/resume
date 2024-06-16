@@ -1,5 +1,5 @@
 {
-  "typst-lsp.exportPdf": "onPinnedMainSave",
+  "typst-lsp.exportPdf": "never",
   "[typst]": {
     "editor.wordWrap": "on",
     "editor.semanticHighlighting.enabled": true,
