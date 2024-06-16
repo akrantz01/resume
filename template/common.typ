@@ -11,7 +11,9 @@
 #let date-range(start, end) = {
   if end == none [
     #start.display("[month repr:short] [year]") - Present
-  ] else if start.year() == end.year() {
+  ] else if start > end {
+    panic("Start date is after end date")
+  } else if start.year() == end.year() {
     if start.month() == end.month() {
       start.display("[month repr:short] [year]")
     } else [
