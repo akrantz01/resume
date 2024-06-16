@@ -58,7 +58,12 @@ jobs:
           find . -type f -name '*.pdf' -exec mv {} resumes/ \;
           ls resumes
 
-      - run: aws s3 cp resumes/ s3://resumes --recursive
+      - name: aws s3 cp resumes/ s3://resumes
+        run: |
+          aws s3 cp resumes/ s3://resumes \
+            --recursive \
+            --content-disposition inline \
+            --content-type application/pdf
         env:
           AWS_REGION: auto
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
