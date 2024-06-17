@@ -185,18 +185,22 @@ awards:
   - name: Best Startup by YCombinator
     organization: TreeHacks 2023
     on: 2023-02-19
+    url:
+      text: Devpost
+      href: https://devpost.com/software/cognito-uf3rs1
     description: >-
-      Developed a web-based tool called
-      #link("https://devpost.com/software/cognito-uf3rs1")[Cognito] with a friend that uses AI
-      combined with natural language queries to provide companies insight into their customers,
-      audiences, potential leads using publicly available data.
+      Developed a web-based tool called Cognito with a friend that uses AI combined with natural
+      language queries to provide companies insight into their customers, audiences, potential
+      leads using publicly available data.
 
   - name: 1st Place
     organization: FrontierHacks
     on: 2019-11-24
+    url:
+      text: Devpost
+      href: https://devpost.com/software/atomicnet
     description: >-
-      Developed a hardware and software solution called
-      #link("https://devpost.com/software/atomicnet")[AtomicNet] to prevent internet outages in a
+      Developed a hardware and software solution called AtomicNet to prevent internet outages in a
       team of 4. It uses low-cost, low-power Rasperry Pis to act as an alternative or more
       resilient internet, ensuring that internet outages are minimized. The software component is a
       suite of applications that proide basic chat, forums, and information sharing functionality.
