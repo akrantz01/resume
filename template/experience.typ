@@ -1,6 +1,14 @@
 #import "common.typ": date-range, icon, section
 
-#let entry(company, title, date, location: none, url: none, highlights: (), settings: (:)) = {
+#let entry(
+  company,
+  title,
+  date,
+  location: none,
+  url: none,
+  highlights: (),
+  settings: (:),
+) = {
   let link = if url != none {
     let text = if settings.full-links {
       url
@@ -8,10 +16,12 @@
       url.trim("https://", at: start)
     }
 
-    box(move(dx: 0.5em)[
-      #icon("website")
-      #link(url, text)
-    ])
+    box(
+      move(dx: 0.5em)[
+        #icon("website")
+        #link(url, text)
+      ],
+    )
   }
 
   set block(above: 0.7em, below: 0.75em)

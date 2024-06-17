@@ -23,6 +23,10 @@
       title = upper(section.id.slice(0, count: 1)) + section.id.slice(1)
     }
 
-    renderer(title: title, settings: settings, ..data.at(section.id, default: ()))
+    renderer(
+      title: title,
+      settings: settings,
+      ..data.at(section.id, default: ()),
+    )
   }
 }
