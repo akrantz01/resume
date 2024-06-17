@@ -39,5 +39,5 @@
     on,
     settings: settings,
     ..rest,
-  )).join(v(0.25em))
+  )).join()
 }

@@ -14,7 +14,7 @@
     ])
   }
 
-  set block(above: 0.7em, below: 1em)
+  set block(above: 0.7em, below: 0.75em)
   grid(
     columns: (80%, 20%),
     align(left)[
@@ -38,5 +38,5 @@
     date,
     settings: settings,
     ..rest,
-  )).join(v(0.25em))
+  )).join()
 }

@@ -32,7 +32,7 @@
 
 #set list(indent: 1em, marker: [--])
 #show link: underline
-#show link: set underline(offset: 3pt)
+#show link: set underline(offset: 1.5pt)
 
 #import "template/heading.typ": header
 #import "template/sections.typ": sections

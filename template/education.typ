@@ -51,5 +51,5 @@
     school,
     date,
     ..rest,
-  )).join(v(0.25em))
+  )).join()
 }
