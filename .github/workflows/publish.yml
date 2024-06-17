@@ -55,7 +55,7 @@ jobs:
         run: |
           aws s3 cp resumes/ s3://resumes \
             --recursive \
-            --content-disposition "inline; filename=alex-krantz-resumes.pdf" \
+            --content-disposition "inline; filename=alex-krantz-resume.pdf" \
             --content-type application/pdf \
             --metadata-directive REPLACE
         env:
