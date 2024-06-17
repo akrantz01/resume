@@ -9,13 +9,13 @@
 }
 
 #let account_link(base, identifier, full: false) = {
-  let base = base.trim("/", at: end) + "/" + identifier
+  let base = "https://" + base.trim("/", at: end) + "/" + identifier
   let text = if full {
     base
   } else {
     identifier
   }
-  link("https://" + base, text)
+  link(base, text)
 }
 
 #let header_items = (
