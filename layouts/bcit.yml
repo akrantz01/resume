@@ -14,11 +14,12 @@ sections:
   - type: projects
     id: projects
 
-  - type: education
-    id: education
-
   - type: experience
     id: volunteering
+    title: Leadership Experience
+
+  - type: education
+    id: education
 
   - type: awards
     id: awards

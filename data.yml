@@ -157,10 +157,12 @@ projects:
       href: https://github.com/akrantz01/davoxide
     details:
       - A Rust-based class 1 WebDAV server implementing all required features of RFC 4918.
-      - Read-only access to files through a web UI using GraphQL written in TypeScript using React.
       - >-
-        Directory- and file-level permissions for each user using an SSO proxy for authentication
-        and database for authorization.
+        Implemented read-only access to files through a web UI using GraphQL written in TypeScript
+        using React.
+      - >-
+        Built a directory- and file-level permissions system for each user using an SSO proxy for
+        authentication and database for authorization.
 
   - title: Lights
     description: Internet-controlled LEDs for my dorm running on a Raspberry Pi 4
@@ -175,8 +177,9 @@ projects:
         Drives a strip of Adafruit NeoPixels with a Rasperry Pi 4 through a Rust-based library for
         GPIO control.
       - >-
-        Real-time control and viewing from anywhere in the world using Cloudflare Tunnels, a
-        Golang-powered WebSockets server, and client-side synchronization through React and Redux.
+        Provides real-time control and viewing from anywhere in the world using Cloudflare Tunnels,
+        a Golang-powered WebSockets server, and client-side synchronization through React and
+        Redux.
       - >-
         Implemented presets, schedules, and custom animations with WebAssembly modules loaded and
         executed on-demand.
