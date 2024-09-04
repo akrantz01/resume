@@ -41,9 +41,28 @@ education:
       - Symbolic Logic
 
 experience:
-  - id: sai
+  - id: sai-summer
     company: Sanctuary AI
-    title: Systems Integration Intern
+    title: Cognitive Platform Co-op
+    date:
+      start: 2024-06-01
+      end: 2024-08-30
+    location: Vancouver, BC, Canada
+    highlights:
+      - >-
+        Campaigned across software and embedded teams to promote Ansible adoption and knowledge,
+        leading to a 75% increase in team member confidence and ~25 new playbooks for automating
+        processes.
+      - >-
+        Reduced system-wide deployment time from 1 day to 15 minutes by modernizing Ansible
+        playbooks and roles to reduce complexity and increase reusability.
+      - >-
+        Improved internal Ansible developer experience by introducing automated linting, role
+        testing, playbook integration testing, and inventory validation in CI/CD pipelines.
+
+  - id: sai-fall
+    company: Sanctuary AI
+    title: Systems Integration Co-op
     date:
       start: 2023-09-01
       end: 2023-12-31
@@ -241,6 +260,8 @@ skills:
     - Svelte
     - OpenTelemetry
     - Terraform
+    - Ansible
+    - RedHat Ansible Automation Platform
   "Tools & Technologies":
     - Amazon Web Serivces
     - Google Cloud Platform
