@@ -26,6 +26,7 @@
     renderer(
       title: title,
       settings: settings,
+      omit: section.at("omit", default: ()),
       ..data.at(section.id, default: ()),
     )
   }

@@ -14,7 +14,8 @@ author:
       username: akrantz01
 
 education:
-  - school: British Columbia Institute of Technology
+  - id: bcit-cst
+    school: British Columbia Institute of Technology
     degree: Computer Systems Technology
     date:
       start: 2024-01-08
@@ -26,7 +27,8 @@ education:
       - Programming Methods
       - Business Analysis and System Design
 
-  - school: University of British Columbia
+  - id: ubc-ee
+    school: University of British Columbia
     degree: Bachelor of Applied Science
     area: Electrical Engineering (unfinished)
     date:
@@ -39,7 +41,8 @@ education:
       - Symbolic Logic
 
 experience:
-  - company: Sanctuary AI
+  - id: sai
+    company: Sanctuary AI
     title: Systems Integration Intern
     date:
       start: 2023-09-01
@@ -55,7 +58,8 @@ experience:
         security.
       - Reduced the size of a service's container by 85% and sped up its startup time by 100 times.
 
-  - company: Shopify
+  - id: shopify-payments
+    company: Shopify
     title: Payments Infrastructure, Backend Developer Intern
     date:
       start: 2023-05-01
@@ -72,7 +76,8 @@ experience:
         Prevented potential fines from NACHA by handling account errors in ACH return transaction
         processing.
 
-  - company: Shuttle
+  - id: shuttle
+    company: Shuttle
     title: Open Source Contractor
     date:
       start: 2022-10-01
@@ -86,7 +91,8 @@ experience:
         Designed and implemented a system that issues TLS certificates for custom domains using
         LetsEncrypt.
 
-  - company: Shopify
+  - id: shopify-fulfillment
+    company: Shopify
     title: Shopify Fulfillment Network, Backend Developer Intern
     date:
       start: 2022-05-01
@@ -101,7 +107,8 @@ experience:
         Added strict typing to the codebase using Sorbet to improve developer experience and
         prevent errors.
 
-  - company: InfluxData
+  - id: influxdata
+    company: InfluxData
     title: Software Engineering Intern
     date:
       start: 2021-05-01
@@ -115,7 +122,8 @@ experience:
       - Interacted with community developers to resolve issues and pull requests on GitHub.
 
 volunteering:
-  - company: WaffleHacks
+  - id: wafflehacks
+    company: WaffleHacks
     title: Directory of Technology
     date:
       start: 2021-02-01
@@ -131,7 +139,8 @@ volunteering:
       - Coordinated a team of 4 developers to build a juding platform, Discord bot, and website.
 
 projects:
-  - title: lers
+  - id: lers
+    title: lers
     description: An asynchronous, user-friendly ACME client written in Rust
     date:
       start: 2023-03-14
@@ -145,7 +154,8 @@ projects:
         Provides robust, bundled challenge solvers for the HTTP-01, DNS-01, and TLS-ALPN-01
         challenges.
 
-  - title: DAVOxide
+  - id: davoxide
+    title: DAVOxide
     description: A simple WebDAV server with a minimal web UI
     date:
       start: 2022-07-21
@@ -162,7 +172,8 @@ projects:
         Built a directory- and file-level permissions system for each user using an SSO proxy for
         authentication and database for authorization.
 
-  - title: Lights
+  - id: lights
+    title: Lights
     description: Internet-controlled LEDs for my dorm running on a Raspberry Pi 4
     date:
       start: 2021-09-30
@@ -183,7 +194,8 @@ projects:
         executed on-demand.
 
 awards:
-  - name: Best Startup by YCombinator
+  - id: treehacks-cognito
+    name: Best Startup by YCombinator
     organization: TreeHacks 2023
     on: 2023-02-19
     url:
@@ -194,7 +206,8 @@ awards:
       language queries to provide companies insight into their customers, audiences, potential
       leads using publicly available data.
 
-  - name: 1st Place
+  - id: frontierhacks-atomicnet
+    name: 1st Place
     organization: FrontierHacks
     on: 2019-11-24
     url:
@@ -206,7 +219,8 @@ awards:
       resilient internet, ensuring that internet outages are minimized. The software component is a
       suite of applications that proide basic chat, forums, and information sharing functionality.
 
-  - name: Eagle Scout
+  - id: bsa-eagle
+    name: Eagle Scout
     organization: Boy Scouts of America
     on: 2019-01-08
 

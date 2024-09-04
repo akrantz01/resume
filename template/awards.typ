@@ -42,7 +42,7 @@
 
 #let awards(title: "Awards", settings: (:), ..entries) = {
   section(title)
-  entries.pos().map(((name, organization, on, ..rest)) => entry(
+  entries.pos().map(((id, name, organization, on, ..rest)) => entry(
     name,
     organization,
     on,

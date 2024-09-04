@@ -1,6 +1,6 @@
 #import "common.typ": section
 
-#let skills(title: "Skills", settings: (:), ..entries) = {
+#let skills(title: "Skills", settings: (:), omit: (), ..entries) = {
   section(title)
 
   block(

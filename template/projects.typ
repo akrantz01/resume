@@ -42,7 +42,7 @@
 
 #let projects(title: "Projects", settings: (:), ..entries) = {
   section(title)
-  entries.pos().map(((title, date, ..rest)) => entry(
+  entries.pos().map(((id, title, date, ..rest)) => entry(
     title,
     date,
     settings: settings,

@@ -10,6 +10,8 @@ sections:
 
   - type: experience
     id: experience
+    omit:
+      - shuttle
 
   - type: projects
     id: projects

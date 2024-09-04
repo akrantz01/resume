@@ -47,7 +47,7 @@
 
 #let education(title: "Education", ..entries) = {
   section(title)
-  entries.pos().map(((school, date, ..rest)) => entry(
+  entries.pos().map(((id, school, date, ..rest)) => entry(
     school,
     date,
     ..rest,
