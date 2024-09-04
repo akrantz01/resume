@@ -134,7 +134,6 @@ experience:
       end: 2021-09-30
     location: Redwood City, CA, USA
     highlights:
-      - Maintained an open-source data acquisition tool called Telegraf written in Go.
       - >-
         Implemented upwards of 25 bug fixes and features concerning Telegraf's interaction with
         databases, cloud services, and deployment solutions.
