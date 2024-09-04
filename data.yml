@@ -150,11 +150,11 @@ volunteering:
     highlights:
       - >-
         Developed and deployed a custom application portal using Python and TypeScript that was
-        utilized by approximately 3500 participants over 4 events.
+        visited by approximately 3500 participants over 4 events.
       - >-
-        Leveraged OpenTelemetry for distributed tracing to reduce P99 latency by 250ms and detect
-        issues and service disruptions via configured alerting.
-      - Coordinated a team of 4 developers to build a juding platform, Discord bot, and website.
+        Leveraged distributed tracing via OpenTelemetry to detect reliability issues and reduce
+        latency by 250ms.
+      - Coordinated a team of student developers to build a juding platform, Discord bot, and website.
 
 projects:
   - id: lers
