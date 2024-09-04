@@ -154,7 +154,9 @@ volunteering:
       - >-
         Leveraged distributed tracing via OpenTelemetry to detect reliability issues and reduce
         latency by 250ms.
-      - Coordinated a team of student developers to build a juding platform, Discord bot, and website.
+      - >-
+        Coordinated a team of student developers to build a juding platform, Discord bot, and
+        website.
 
 projects:
   - id: lers
