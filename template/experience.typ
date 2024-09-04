@@ -42,15 +42,13 @@
 
 #let experience(title: "Experience", settings: (:), omit: (), ..entries) = {
   section(title)
-  entries
-    .pos()
-    .filter(((id, ..rest)) => id not in omit)
-    .map(((id, company, title, date, ..rest)) => entry(
-      company,
-      title,
-      date,
-      settings: settings,
-      ..rest,
-    ))
-    .join()
+  entries.pos().filter(((id, ..rest)) => id not in omit).map((
+    (id, company, title, date, ..rest),
+  ) => entry(
+    company,
+    title,
+    date,
+    settings: settings,
+    ..rest,
+  )).join()
 }
