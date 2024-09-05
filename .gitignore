@@ -188,3 +188,4 @@ cython_debug/
 
 ### Project Files ###
 *.pdf
+__jinja_cache__

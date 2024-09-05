@@ -4,17 +4,12 @@ from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
 from install_typst import install_typst_if_needed
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, FileSystemBytecodeCache, FileSystemLoader, select_autoescape
 
 CWD = Path.cwd()
 FONTS = CWD / "fonts"
 LAYOUTS = CWD / "layouts"
 MAIN = CWD / "main.typ"
-
-env = Environment(
-    loader=FileSystemLoader(Path(__file__).parent / "templates"),
-    autoescape=select_autoescape(),
-)
 
 
 def compile(layout: str, output: Path) -> None:
@@ -36,7 +31,19 @@ def compile(layout: str, output: Path) -> None:
         sys.exit(result.returncode)
 
 
-def build_all(output: Path) -> None:
+def build_one(env: Environment, layout: str, output: Path) -> None:
+    """
+    Build the specified layout
+    """
+    print(f"Building {layout!r} layout...")
+    compile(layout, output)
+
+    template = env.get_template("viewer.html.j2")
+    with (output / f"{layout}.html").open("w") as file:
+        template.stream(layout=layout).dump(file)
+
+
+def build_all(env: Environment, output: Path) -> None:
     """
     Build all the layouts
     """
@@ -44,11 +51,26 @@ def build_all(output: Path) -> None:
         if not (layout.is_file() and layout.suffix == ".yml"):
             continue
 
-        print(f"Building {layout.stem!r} layout...")
-        compile(layout.stem, output)
+        build_one(env, layout.stem, output)
 
 
-def render_redirects(default: str, output: Path) -> None:
+def create_jinja_environment() -> Environment:
+    """
+    Create the Jinja rendering environment
+    """
+    templates = Path(__file__).parent / "templates"
+
+    cache = CWD / "__jinja_cache__"
+    cache.mkdir(exist_ok=True, parents=True)
+
+    return Environment(
+        loader=FileSystemLoader(templates),
+        bytecode_cache=FileSystemBytecodeCache(cache),
+        autoescape=select_autoescape(),
+    )
+
+
+def render_redirects(env: Environment, default: str, output: Path) -> None:
     """
     Render the redirects file for Cloudflare Pages
     """
@@ -93,9 +115,12 @@ if __name__ == "__main__":
     output = Path(args.output)
     output.mkdir(exist_ok=True, parents=True)
 
+    env = create_jinja_environment()
+
     if args.only:
+        build_one(env, args.only, output)
         compile(args.only, output)
     else:
-        build_all(output)
+        build_all(env, output)
 
-    render_redirects(args.default, output)
+    render_redirects(env, args.default, output)
