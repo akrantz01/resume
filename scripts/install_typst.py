@@ -1,11 +1,12 @@
 import platform
 import shutil
-import subprocess
 from argparse import ArgumentParser
 from pathlib import Path
 
 import httpx
 from github import Asset, Release, Repository
+
+CWD = Path.cwd()
 
 
 def select_asset_for_platform(release: Release) -> Asset:
@@ -54,37 +55,23 @@ def download_typst(version: str | None = None, repository: str = "typst/typst") 
     return archive.with_suffix("").with_suffix("") / executable
 
 
-def move_executable(executable: Path) -> None:
-    """
-    Move an executable to a directory in the PATH.
-    """
-    try:
-        shutil.move(executable, "/usr/local/bin")
-        return
-    except PermissionError:
-        pass
-
-    print("Could not move executable to /usr/local/bin. Trying with sudo...")
-    subprocess.run(f"sudo mv {executable} /usr/local/bin", shell=True, check=True)
-
-
 def install_typst_if_needed(version: str | None = None, repository: str = "typst/typst") -> None:
     """
     Install the specified typst release if it is not already installed.
     """
 
-    executable = shutil.which("typst")
-    if executable is not None:
-        print(f"typst is already installed to {executable}")
+    destination = CWD / "typst"
+    if destination.exists() and destination.is_file():
+        print(f"typst is already installed at {destination}")
         return
 
     executable = download_typst(version, repository)
-    move_executable(executable)
+    shutil.copyfile(executable, destination)
 
     shutil.rmtree(executable.parent.parent)
-    assert shutil.which("typst") is not None
+    assert destination.exists()
 
-    print("Installed typst to /usr/local/bin")
+    print(f"Installed typst at {destination}")
 
 
 if __name__ == "__main__":
