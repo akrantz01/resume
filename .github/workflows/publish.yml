@@ -4,39 +4,7 @@ name: Publish
 "on": [push]
 
 jobs:
-  select:
-    name: Select
-    runs-on: ubuntu-latest
-    outputs:
-      layouts: ${{ steps.generator.outputs.layouts }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Find layouts
-        id: generator
-        run: echo "layouts=$(find ./layouts -type f -printf '"%f"\n' | jq -cs 'map(split(".") | first)')" >> "$GITHUB_OUTPUT" # yamllint disable-line rule:line-length
-
   compile:
-    name: Compile (${{ matrix.layout }})
-    runs-on: ubuntu-latest
-    needs: [select]
-    strategy:
-      fail-fast: false
-      matrix:
-        layout: ${{ fromJSON(needs.select.outputs.layouts) }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: typst-community/setup-typst@v3
-      - uses: taiki-e/install-action@just
-
-      - run: just compile ${{ matrix.layout }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.layout }}
-          path: ${{ matrix.layout }}.pdf
-
-  compile-v2:
     name: Compile
     runs-on: ubuntu-latest
     steps:
@@ -52,10 +20,15 @@ jobs:
 
       - run: ls -la build
 
+      - uses: actions/upload-artifact@v4
+        with:
+          path: build/*.pdf
+
   upload:
     name: Upload
     runs-on: ubuntu-latest
-    needs: [compile]
+    needs:
+      - compile
     # if: github.ref == 'refs/heads/main'
     concurrency:
       group: publish
