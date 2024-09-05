@@ -4,52 +4,35 @@ name: Publish
 "on": [push]
 
 jobs:
-  select:
-    name: Select
-    runs-on: ubuntu-latest
-    outputs:
-      layouts: ${{ steps.generator.outputs.layouts }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Find layouts
-        id: generator
-        run: echo "layouts=$(find ./layouts -type f -printf '"%f"\n' | jq -cs 'map(split(".") | first)')" >> "$GITHUB_OUTPUT" # yamllint disable-line rule:line-length
-
   compile:
-    name: Compile (${{ matrix.layout }})
+    name: Compile
     runs-on: ubuntu-latest
-    needs: [select]
-    strategy:
-      fail-fast: false
-      matrix:
-        layout: ${{ fromJSON(needs.select.outputs.layouts) }}
     steps:
       - uses: actions/checkout@v4
-      - uses: typst-community/setup-typst@v3
-      - uses: taiki-e/install-action@just
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+          cache: pip
+          cache-dependency-path: ./requirements.txt
 
-      - run: just compile ${{ matrix.layout }}
+      - run: pip install -r requirements.txt
+      - run: python3 scripts/build.py
 
       - uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.layout }}
-          path: ${{ matrix.layout }}.pdf
+          name: resumes
+          path: build/*.pdf
 
   upload:
     name: Upload
     runs-on: ubuntu-latest
-    needs: [compile]
+    needs:
+      - compile
     if: github.ref == 'refs/heads/main'
     concurrency:
       group: publish
     steps:
       - uses: actions/download-artifact@v4
-
-      - name: Prevent unnecessary directory nesting
-        run: |
-          mkdir resumes
-          find . -type f -name '*.pdf' -exec mv {} resumes/ \;
 
       - name: aws s3 cp resumes/ s3://resumes
         run: |
