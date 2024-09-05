@@ -67,6 +67,7 @@ def install_typst_if_needed(version: str | None = None, repository: str = "typst
 
     executable = download_typst(version, repository)
     shutil.copyfile(executable, destination)
+    destination.chmod(0o755)
 
     shutil.rmtree(executable.parent.parent)
     assert destination.exists()
