@@ -36,24 +36,15 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
 
-      - run: ls -laR
-
-      - name: Prevent unnecessary directory nesting
+      - name: aws s3 cp resumes/ s3://resumes
         run: |
-          mkdir resumes-v1
-          find . -type f -name '*.pdf' -exec mv {} resumes-v1/ \;
-
-      - run: ls -la resumes-v1/
-
-      # - name: aws s3 cp resumes/ s3://resumes
-      #   run: |
-      #     aws s3 cp resumes/ s3://resumes \
-      #       --recursive \
-      #       --content-disposition "inline; filename=alex-krantz-resume.pdf" \
-      #       --content-type application/pdf \
-      #       --metadata-directive REPLACE
-      #   env:
-      #     AWS_REGION: auto
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     AWS_ENDPOINT_URL_S3: ${{ secrets.AWS_ENDPOINT_URL_S3 }}
+          aws s3 cp resumes/ s3://resumes \
+            --recursive \
+            --content-disposition "inline; filename=alex-krantz-resume.pdf" \
+            --content-type application/pdf \
+            --metadata-directive REPLACE
+        env:
+          AWS_REGION: auto
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ENDPOINT_URL_S3: ${{ secrets.AWS_ENDPOINT_URL_S3 }}
