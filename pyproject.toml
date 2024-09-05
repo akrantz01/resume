@@ -1,0 +1,4 @@
+[tool.pip-tools]
+allow-unsafe = true
+generate-hashes = true
+strip-extras = true
