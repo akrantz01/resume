@@ -80,9 +80,10 @@ class Repository:
         """
         Get the latest release for this repository.
         """
-        result = client.get(
+        response = client.get(
             f"{BASE_URL}/repos/{self.owner}/{self.name}/releases/latest",
             headers=HEADERS,
             follow_redirects=True,
-        ).json()
+        )
+        result = response.json()
         return structure(result, Release)
