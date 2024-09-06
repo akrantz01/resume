@@ -36,3 +36,14 @@ const resume = await loadingTask.promise;
 
 viewer.setDocument(resume);
 linkService.setDocument(resume, null);
+
+eventBus.on("download", () => {
+  const a = document.createElement("a");
+  a.href = `/${layout}.pdf`;
+  a.target = "_parent";
+  if ("download" in a) a.download = "alex-krantz-resume.pdf";
+
+  (document.body || document.documentElement).appendChild(a);
+  a.click();
+  a.remove();
+}, { signal });
