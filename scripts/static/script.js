@@ -23,6 +23,7 @@ const viewer = new pdfjsViewer.PDFSinglePageViewer({
 });
 linkService.setViewer(viewer);
 
+eventBus.on("pagesinit", () => (viewer.currentScaleValue = viewer.currentScaleValue || "auto"), { signal });
 eventBus.on("zoomin", () => viewer.updateScale({ steps: 1 }), { signal });
 eventBus.on("zoomout", () => viewer.updateScale({ steps: -1 }), { signal });
 eventBus.on("scalechanged", (event) => (viewer.currentScaleValue = event.value), { signal });
