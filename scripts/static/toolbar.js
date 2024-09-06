@@ -9,7 +9,6 @@ const customScaleOption = document.getElementById("customScaleOption");
 const zoomInButton = document.getElementById("zoomIn");
 const zoomOutButton = document.getElementById("zoomOut");
 const downloadButton = document.getElementById("download");
-const printButton = document.getElementById("print");
 
 export class Toolbar {
   constructor(eventBus) {
@@ -28,7 +27,6 @@ export class Toolbar {
     zoomInButton.addEventListener("click", () => eventBus.dispatch("zoomin"));
     zoomOutButton.addEventListener("click", () => eventBus.dispatch("zoomout"));
     downloadButton.addEventListener("click", () => eventBus.dispatch("download"));
-    printButton.addEventListener("click", () => eventBus.dispatch("print"));
 
     this.reset();
   }
