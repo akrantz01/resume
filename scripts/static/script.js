@@ -3,25 +3,23 @@ const layout = params.get("layout");
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf.worker.min.mjs";
 
-const container = document.getElementById("container");
+const container = document.getElementById("viewerContainer");
 
 const eventBus = new pdfjsViewer.EventBus();
 const linkService = new pdfjsViewer.PDFLinkService({
   eventBus,
   externalLinkTarget: pdfjsViewer.LinkTarget.BLANK,
 });
-const findController = new pdfjsViewer.PDFFindController({ eventBus, linkService });
 
 const viewer = new pdfjsViewer.PDFSinglePageViewer({
   container,
   eventBus,
   linkService,
-  findController,
 });
 linkService.setViewer(viewer);
 
 eventBus.on("pagesinit", () => {
-  viewer.currentScaleValue = "page-fit";
+  viewer.currentScaleValue = "page-width";
 });
 
 const loadingTask = pdfjsLib.getDocument({

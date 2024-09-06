@@ -1,12 +1,317 @@
-body {
-  background-color: #808080;
-  margin: 0;
-  padding: 0;
+:root {
+  --inline-start: left;
+  --inline-end: right;
+
+  --toolbar-icon-opacity: 0.7;
+
+  --main-color: rgb(12 12 13);
+  --body-bg-color: rgb(212 212 215);
+  --scrollbar-color: auto;
+  --scrollbar-bg-color: auto;
+  --toolbar-icon-bg-color: rgb(0 0 0);
+  --toolbar-icon-hover-bg-color: rgb(0 0 0);
+  --toolbar-bg-color: rgb(249 249 250);
+  --toolbar-border-color: rgb(184 184 184);
+  --toolbar-box-shadow: 0 1px 0 var(--toolbar-border-color);
+  --toolbar-border-bottom: none;
+  --toolbar-height: 32px;
+  --toolbarSidebar-border-bottom: none;
+  --button-hover-color: rgb(221 222 223);
+  --toggled-btn-color: rgb(0 0 0);
+  --toggled-btn-bg-color: rgb(0 0 0 / 0.3);
+  --toggled-hover-active-btn-color: rgb(0 0 0 / 0.4);
+  --toggled-hover-btn-outline: none;
+  --dropdown-btn-bg-color: rgb(215 215 219);
+  --dropdown-btn-border: none;
+  --separator-color: rgb(0 0 0 / 0.3);
+  --doorhanger-bg-color: rgb(255 255 255);
+
+  --loading-icon: url(icons/loading.svg);
+  --toolbarButton-menuArrow-icon: url(icons/toolbarButton-menuArrow.svg);
+  --toolbarButton-zoomOut-icon: url(icons/toolbarButton-zoomOut.svg);
+  --toolbarButton-zoomIn-icon: url(icons/toolbarButton-zoomIn.svg);
+  --toolbarButton-print-icon: url(icons/toolbarButton-print.svg);
+  --toolbarButton-download-icon: url(icons/toolbarButton-download.svg);
 }
 
-#container {
-  overflow: auto;
-  position: absolute;
+:root:dir(rtl) {
+  --inline-start: right;
+  --inline-end: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-color: rgb(249 249 250);
+    --body-bg-color: rgb(42 42 46);
+    --scrollbar-color: rgb(121 121 123);
+    --scrollbar-bg-color: rgb(35 35 39);
+    --toolbar-icon-bg-color: rgb(255 255 255);
+    --toolbar-icon-hover-bg-color: rgb(255 255 255);
+    --toolbar-bg-color: rgb(56 56 61);
+    --toolbar-border-color: rgb(12 12 13);
+    --button-hover-color: rgb(102 102 103);
+    --toggled-btn-color: rgb(255 255 255);
+    --toggled-btn-bg-color: rgb(0 0 0 / 0.3);
+    --toggled-hover-active-btn-color: rgb(0 0 0 / 0.4);
+    --dropdown-btn-bg-color: rgb(74 74 79);
+    --separator-color: rgb(0 0 0 / 0.3);
+    --doorhanger-bg-color: rgb(74 74 79);
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  scrollbar-color: var(--scrollbar-color) var(--scrollbar-bg-color);
+}
+
+#outerContainer {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+#mainContainer {
+  position: absolute;
+  inset: 0;
+  min-width: 350px;
+}
+
+#viewerContainer {
+  overflow: auto;
+  position: absolute;
+  inset: var(--toolbar-height) 0 0;
+  outline: none;
+}
+
+.toolbar {
+  position: relative;
+  inset-inline: 0;
+  z-index: 9999;
+  cursor: default;
+  font: message-box;
+}
+
+:is(.toolbar, .editorParamsToolbar, #sidebarContainer) :is(input, button, select) {
+  outline: none;
+  font: message-box;
+}
+
+#toolbarContainer {
+  width: 100%;
+  position: relative;
+  height: var(--toolbar-height);
+  background-color: var(--toolbar-bg-color);
+  box-shadow: var(--toolbar-box-shadow);
+  border-bottom: var(--toolbar-border-bottom);
+}
+
+#toolbarViewer {
+  height: var(--toolbar-height);
+}
+
+#toolbarViewerMiddle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#toolbarViewerMiddle>* {
+  position: relative;
+  float: var(--inline-start);
+}
+
+.splitToolbarButton {
+  margin: 2px;
+  display: inline-block;
+}
+
+.splitToolbarButton>.toolbarButton {
+  float: var(--inline-start);
+}
+
+.toolbarButton {
+  border: none;
+  background: none;
+  width: 28px;
+  height: 28px;
+  outline: none;
+}
+
+.toolbarButton>span {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+:is(.toolbarButton)[disabled] {
+  opacity: 0.5;
+}
+
+.splitToolbarButton>.toolbarButton:is(:hover, :focus-visible),
+.dropdownToolbarButton:hover {
+  background-color: var(--button-hover-color);
+}
+
+.splitToolbarButton>.toolbarButton {
+  position: relative;
+  margin: 0;
+}
+
+.splitToolbarButtonSeparator {
+  float: var(--inline-start);
+  margin: 4px 0;
+  width: 1px;
+  height: 20px;
+  background-color: var(--separator-color);
+}
+
+.toolbarButton,
+.dropdownToolbarButton {
+  min-width: 16px;
+  margin: 2px 1px;
+  padding: 2px 6px 0;
+  border: none;
+  border-radius: 2px;
+  color: var(--main-color);
+  font-size: 12px;
+  line-height: 14px;
+  user-select: none;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.toolbarButton:is(:hover, :focus-visible) {
+  background-color: var(--button-hover-color);
+}
+
+.toolbarButton.toggled,
+.splitToolbarButton.toggled>.toolbarButton.toggled {
+  background-color: var(--toggled-btn-bg-color);
+  color: var(--toggled-btn-color);
+}
+
+.toolbarButton.toggled:hover,
+.splitToolbarButton.toggled>.toolbarButton.toggled:hover {
+  outline: var(--toggled-hover-btn-outline) !important;
+}
+
+.toolbarButton.toggled::before {
+  background-color: var(--toggled-btn-color);
+}
+
+.toolbarButton.toggled:hover:active,
+.splitToolbarButton.toggled>.toolbarButton.toggled:hover:active {
+  background-color: var(--toggled-hover-active-btn-color);
+}
+
+.dropdownToolbarButton {
+  display: flex;
+  width: fit-content;
+  min-width: 140px;
+  padding: 0;
+  background-color: var(--dropdown-btn-bg-color);
+  border: var(--dropdown-btn-border);
+}
+
+.dropdownToolbarButton::after {
+  top: 6px;
+  inset-inline-end: 6px;
+  pointer-events: none;
+  mask-image: var(--toolbarButton-menuArrow-icon);
+}
+
+.dropdownToolbarButton>select {
+  appearance: none;
+  width: inherit;
+  min-width: inherit;
+  height: 28px;
+  font-size: 12px;
+  color: var(--main-color);
+  margin: 0;
+  padding-block: 1px 2px;
+  padding-inline: 6px 38px;
+  border: none;
+  background-color: var(--dropdown-btn-bg-color);
+}
+
+.dropdownToolbarButton>select:is(:hover, :focus-visible) {
+  background-color: var(--button-hover-color);
+  color: var(--toggled-btn-color);
+}
+
+.dropdownToolbarButton>select>option {
+  background: var(--doorhanger-bg-color);
+  color: var(--main-color);
+}
+
+.toolbarButtonSpacer {
+  width: 30px;
+  display: inline-block;
+  height: 1px;
+}
+
+.toolbarButton::before,
+.dropdownToolbarButton::after {
+  /* All matching images have a size of 16x16
+   * All relevant containers have a size of 28x28 */
+  position: absolute;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+
+  content: "";
+  background-color: var(--toolbar-icon-bg-color);
+  mask-size: cover;
+}
+
+.dropdownToolbarButton:is(:hover, :focus-visible, :active)::after {
+  background-color: var(--toolbar-icon-hover-bg-color);
+}
+
+.toolbarButton::before {
+  opacity: var(--toolbar-icon-opacity);
+  top: 6px;
+  left: 6px;
+}
+
+.toolbarButton:is(:hover, :focus-visible)::before {
+  background-color: var(--toolbar-icon-hover-bg-color);
+}
+
+#zoomOut::before {
+  mask-image: var(--toolbarButton-zoomOut-icon);
+}
+
+#zoomIn::before {
+  mask-image: var(--toolbarButton-zoomIn-icon);
+}
+
+#print::before {
+  mask-image: var(--toolbarButton-print-icon);
+}
+
+#download::before {
+  mask-image: var(--toolbarButton-download-icon);
+}
+
+@media all and (max-width: 900px) {
+  #toolbarViewerMiddle {
+    display: table;
+    margin: auto;
+    left: auto;
+    position: inherit;
+    transform: none;
+  }
 }

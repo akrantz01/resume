@@ -15,11 +15,60 @@
   <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf.min.mjs"></script>
   <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf_viewer.mjs"></script>
   <script type="module" src="script.js?layout={{ layout }}"></script>
+  <script>0</script>
 </head>
 
-<body>
-  <div id="container">
-    <div id="viewer" class="pdfViewer"></div>
+<body tabindex="1">
+  <div class="outerContainer">
+
+    <div class="mainContainer">
+      <div class="toolbar">
+        <div id="toolbarContainer">
+          <div id="toolbarViewer">
+            <div id="toolbarViewerMiddle">
+              <div class="splitToolbarButton">
+                <button id="zoomOut" class="toolbarButton" type="button" title="Zoom Out" tabindex="21">
+                  <span>Zoom Out</span>
+                </button>
+                <div class="splitToolbarButtonSeparator"></div>
+                <button id="zoomIn" class="toolbarButton" type="button" title="Zoom In" tabindex="22">
+                  <span>Zoom In</span>
+                </button>
+              </div>
+              
+              <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                <select id="scaleSelect" title="Zoom" tabindex="23">
+                  <option id="pageAutoOption" title="" value="auto" selected="selected">Automatic Zoom</option>
+                  <option id="pageActualOption" title="" value="page-actual">Actual Size</option>
+                  <option id="pageFitOption" title="" value="page-fit">Page Fit</option>
+                  <option id="pageWidthOption" title="" value="page-width">Page Width</option>
+                  <option id="customScaleOption" title="" value="custom" disabled="disabled" hidden="true">0%</option>
+                  <option title="" value="0.5">50%</option>
+                  <option title="" value="0.75">75%</option>
+                  <option title="" value="1">100%</option>
+                  <option title="" value="1.25">125%</option>
+                  <option title="" value="1.5">150%</option>
+                  <option title="" value="2">200%</option>
+                  <option title="" value="3">300%</option>
+                  <option title="" value="4">400%</option>
+                </select>
+              </span>
+
+              <button id="print" class="toolbarButton" type="button" title="Print" tabindex="41">
+                <span>Print</span>
+              </button>
+              <button id="download" class="toolbarButton" type="button" title="Save" tabindex="42">
+                <span>Save</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="viewerContainer" tabindex="0">
+        <div id="viewer" class="pdfViewer"></div>
+      </div>
+    </div>
   </div>
 </body>
 

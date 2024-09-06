@@ -86,9 +86,7 @@ def copy_static(output: Path) -> None:
     Copy the static files to the output directory
     """
     static = Path(__file__).parent / "static"
-    for file in static.iterdir():
-        if file.is_file():
-            shutil.copyfile(file, output / file.name)
+    shutil.copytree(static, output, dirs_exist_ok=True)
 
 
 def parse_arguments() -> Namespace:
