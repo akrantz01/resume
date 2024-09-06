@@ -1,3 +1,5 @@
+import { Toolbar } from "./toolbar.js";
+
 const params = new URL(import.meta.url).searchParams;
 const layout = params.get("layout");
 
@@ -6,6 +8,9 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs
 const container = document.getElementById("viewerContainer");
 
 const eventBus = new pdfjsViewer.EventBus();
+const toolbar = new Toolbar(eventBus);
+const { signal } = new AbortController();
+
 const linkService = new pdfjsViewer.PDFLinkService({
   eventBus,
   externalLinkTarget: pdfjsViewer.LinkTarget.BLANK,
@@ -18,9 +23,10 @@ const viewer = new pdfjsViewer.PDFSinglePageViewer({
 });
 linkService.setViewer(viewer);
 
-eventBus.on("pagesinit", () => {
-  viewer.currentScaleValue = "page-width";
-});
+eventBus.on("zoomin", () => viewer.updateScale({ steps: 1 }), { signal });
+eventBus.on("zoomout", () => viewer.updateScale({ steps: -1 }), { signal });
+eventBus.on("scalechanged", (event) => (viewer.currentScaleValue = event.value), { signal });
+eventBus.on("scalechanging", (event) => toolbar.setPageScale(event.presetValue, event.scale), { signal });
 
 const loadingTask = pdfjsLib.getDocument({
   url: `/${layout}.pdf`,
