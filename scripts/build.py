@@ -1,3 +1,4 @@
+import shutil
 import subprocess
 import sys
 from argparse import ArgumentParser, Namespace
@@ -80,6 +81,16 @@ def render_redirects(env: Environment, default: str, output: Path) -> None:
         template.stream(default=default).dump(file)
 
 
+def copy_static(output: Path) -> None:
+    """
+    Copy the static files to the output directory
+    """
+    static = Path(__file__).parent / "static"
+    for file in static.iterdir():
+        if file.is_file():
+            shutil.copyfile(file, output / file.name)
+
+
 def parse_arguments() -> Namespace:
     parser = ArgumentParser(description="Build the resume(s)")
     parser.add_argument(
@@ -124,3 +135,4 @@ if __name__ == "__main__":
         build_all(env, output)
 
     render_redirects(env, args.default, output)
+    copy_static(output)

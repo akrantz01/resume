@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
   <title>Alex Krantz's Resume</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf_viewer.min.css"
+    integrity="sha512-682NKs3jUDtUlMV5W0Lnw0JoP0VvlS+6ruz0GEFzLZX9OyXw/StyvVV7sEM7Jf96OjoQqWUly3Sm7XvemWfTIA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf.min.mjs"></script>
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf_viewer.mjs"></script>
+  <script type="module" src="script.js?layout={{ layout }}"></script>
 </head>
+
 <body>
-  <a href="/{{ layout }}.pdf" target="_blank">Download PDF</a>
+  <div id="container">
+    <div id="viewer" class="pdfViewer"></div>
+  </div>
 </body>
+
 </html>
