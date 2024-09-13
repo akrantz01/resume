@@ -2,20 +2,20 @@
 title: My Resume
 
 sections:
-  - type: education
-    id: education
+  education:
+    type: education
 
-  - type: experience
-    id: experience
+  experience:
+    type: experience
 
-  - type: experience
-    id: volunteering
+  volunteering:
+    type: experience
 
-  - type: projects
-    id: projects
+  projects:
+    type: projects
 
-  - type: awards
-    id: awards
+  awards:
+    type: awards
 
-  - type: skills
-    id: skills
+  skills:
+    type: skills

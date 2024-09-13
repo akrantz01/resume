@@ -5,23 +5,23 @@ settings:
   full-links: true
 
 sections:
-  - type: skills
-    id: skills
+  skills:
+    type: skills
 
-  - type: experience
-    id: experience
+  experience:
+    type: experience
     omit:
       - shuttle
 
-  - type: projects
-    id: projects
+  projects:
+    type: projects
 
-  - type: experience
-    id: volunteering
+  volunteering:
+    type: experience
     title: Leadership Experience
 
-  - type: education
-    id: education
+  education:
+    type: education
 
-  - type: awards
-    id: awards
+  awards:
+    type: awards
