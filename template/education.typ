@@ -29,7 +29,7 @@
     columns: (80%, 20%),
     align(left)[
       #about \
-      #pad(left: 1em)[
+      #pad(left: 1.25em)[
         #if gpa != none [ #text(weight: "medium")[GPA]: #gpa \ ]
         #if courses.len() > 0 [
           #text(weight: "medium")[Courses]: #courses.join(", ")

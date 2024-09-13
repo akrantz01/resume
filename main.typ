@@ -30,7 +30,7 @@
   font: "Montserrat",
 )
 
-#set list(indent: 1em, marker: [--])
+#set list(indent: 0.5em, marker: [•])
 #show link: underline
 #show link: set underline(offset: 1.5pt)
 

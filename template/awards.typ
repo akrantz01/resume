@@ -33,7 +33,7 @@
   )
   if description != none {
     pad(
-      left: 1em,
+      left: 1.25em,
       top: -0.5em,
       box(width: 90%, eval(description, mode: "markup")),
     )
