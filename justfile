@@ -1,3 +1,6 @@
+local_typst := invocation_directory() + "/typst"
+typst_binary := if path_exists(local_typst) == "true" { local_typst } else { "typst" }
+
 # List the available tasks
 list:
   @just --list --unsorted
@@ -11,7 +14,7 @@ watch layout="default": (typst "watch" layout)
 # Run typst commands
 [private]
 typst command layout="default":
-  typst {{command}} main.typ {{layout}}.pdf \
+  {{typst_binary}} {{command}} main.typ {{layout}}.pdf \
     --input layout=layouts/{{layout}}.yml \
     --font-path ./fonts
 
