@@ -159,6 +159,23 @@ volunteering:
         website.
 
 projects:
+  - id: antsi
+    title: antsi
+    description: A quick and user-friendly way to style text for the terminal
+    date:
+      start: 2024-03-17
+      end: 2024-04-18
+    url:
+      type: github
+      href: https://github.com/akrantz01/antsi
+    details:
+      - >-
+        Provides a simply Python API wrapping a Rust core through the PyO3 library, ensuring
+        maximum performance and ease of use.
+      - >-
+        Built a custom markup language parser to assign colors and decorations to text while
+        minimizing the number of escape sequences used.
+
   - id: lers
     title: lers
     description: An asynchronous, user-friendly ACME client written in Rust
