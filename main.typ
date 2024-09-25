@@ -35,10 +35,12 @@
 #show link: set underline(offset: 1.5pt)
 
 #import "template/heading.typ": header
+#import "template/overrides.typ": apply-overrides
 #import "template/sections.typ": sections
 #import "template/settings.typ": ensure-settings
 
 #let layout = ensure-settings(layout)
+#let data = apply-overrides(data, layout.at("overrides", default: (:)))
 
 #header(data.author.name, settings: layout.settings, links: data.author.links)
 #sections(layout, data)

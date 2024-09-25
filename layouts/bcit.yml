@@ -1,6 +1,9 @@
 ---
 title: BCIT Co-op Resume
 
+overrides:
+  author.links.0.email: akrantz@my.bcit.ca
+
 settings:
   full-links: true
 
