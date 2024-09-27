@@ -24,20 +24,20 @@
     )
   }
 
-  set block(above: 0.7em, below: 0.75em)
+  set block(above: 0.95em, below: 0.95em)
   grid(
-    columns: (80%, 20%),
+    columns: (60%, 40%),
     align(left)[
-      #strong(company), #emph(title) #link \
-      #list(..highlights)
+      #strong(company), #emph(title) #link
     ],
     align(right)[
-      #date-range(date) \
-      #if location != none {
-        emph(location)
-      }
+      #if location != none and settings.locations [
+        #emph(location) --
+      ]
+      #date-range(date)
     ],
   )
+  list(..highlights)
 }
 
 #let experience(title: "Experience", settings: (:), omit: (), ..entries) = {

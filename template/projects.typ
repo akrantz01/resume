@@ -33,10 +33,11 @@
   }
 
   set block(above: 0.7em, below: 0.75em)
-  grid(
-    columns: (85%, 15%),
-    align(left, about), align(right, date-range(date)),
-  )
+  box(width: 100%)[
+    #about
+    #h(1fr)
+    #date-range(date)
+  ]
   list(..details)
 }
 

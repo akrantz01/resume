@@ -25,7 +25,7 @@
 
   set block(above: 0.7em, below: 1em)
   grid(
-    columns: (85%, 15%),
+    columns: (90%, 10%),
     align(left)[
       #strong(name), #emph(organization) #link
     ],
@@ -34,8 +34,9 @@
   if description != none {
     pad(
       left: 1.25em,
+      right: 1.25em,
       top: -0.5em,
-      box(width: 90%, eval(description, mode: "markup")),
+      box(eval(description, mode: "markup")),
     )
   }
 }

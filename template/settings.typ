@@ -1,5 +1,6 @@
 #let with-defaults(settings) = {
   settings.full-links = settings.at("full-links", default: false)
+  settings.locations = settings.at("locations", default: true)
   settings
 }
 

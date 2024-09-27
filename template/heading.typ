@@ -57,7 +57,10 @@
     center,
     block[
       #text(size: 2.25em, font: "Fira Code Retina", name) \
-      #links.map(args => header_item(args, settings)).join(h(1.25em))
+      #{
+        set text(size: 8pt)
+        links.map(args => header_item(args, settings)).join(h(1.25em))
+      }
     ],
   )
   v(5pt)

@@ -30,7 +30,7 @@ education:
   - id: ubc-ee
     school: University of British Columbia
     degree: Bachelor of Applied Science
-    area: Electrical Engineering (unfinished)
+    area: Electrical Engineering
     date:
       start: 2020-09-08
       end: 2023-12-23
@@ -39,6 +39,8 @@ education:
       - Introduction to Microcomputers
       - Data Structures and Algorithms
       - Symbolic Logic
+    extra: >-
+      #text(weight: "medium")[Progress]: unfinished
 
 experience:
   - id: sai-summer
@@ -54,11 +56,12 @@ experience:
         leading to a 75% increase in team member confidence and ~25 new playbooks for automating
         processes.
       - >-
-        Reduced system-wide deployment time from 1 day to 15 minutes by modernizing Ansible
-        playbooks and roles to reduce complexity and increase reusability.
+        Reduced deployment time from 1 day to 15 minutes by applying best practices to Ansible
+        playbooks and roles.
       - >-
-        Improved internal Ansible developer experience by introducing automated linting, role
-        testing, playbook integration testing, and inventory validation in CI/CD pipelines.
+        Improved internal Ansible developer experience by introducing CI/CD pipelines to run
+        automated linting, role testing in ephemeral Docker containers, playbook integration
+        testing on dedicated test hardware, and inventory validation.
 
   - id: sai-fall
     company: Sanctuary AI
@@ -89,8 +92,8 @@ experience:
         Made a parameter optional across the service to reduce data duplication and streamline
         usage for clients.
       - >-
-        Assisted in preparing the service for scaling to Black Friday/Cyber Monday traffic spikes
-        by performing load tests and validating and updating Grafana alerts.
+        Assisted in preparing for Black Friday/Cyber Monday traffic by performing load tests and
+        validating Grafana alerts.
       - >-
         Prevented potential fines from NACHA by handling account errors in ACH return transaction
         processing.
@@ -135,9 +138,9 @@ experience:
     location: Redwood City, CA, USA
     highlights:
       - >-
-        Implemented upwards of 25 bug fixes and features concerning Telegraf's interaction with
-        databases, cloud services, and deployment solutions.
-      - Interacted with community developers to resolve issues and pull requests on GitHub.
+        Implemented ~25 bug fixes and features in Telegraf's database, cloud service, and
+        orchestration interactions.
+      - Interacted with community developers to troubleshoot and resolve issues and pull requests on GitHub.
 
 volunteering:
   - id: wafflehacks
@@ -145,12 +148,12 @@ volunteering:
     title: Directory of Technology
     date:
       start: 2021-02-01
-    location: Remote US & Canada
+      end: 2024-09-01
     url: https://wafflehacks.org
     highlights:
       - >-
         Developed and deployed a custom application portal using Python and TypeScript that was
-        visited by approximately 3500 participants over 4 events.
+        visited by ~3500 participants over 4 events.
       - >-
         Leveraged distributed tracing via OpenTelemetry to detect reliability issues and reduce
         latency by 250ms.
@@ -161,7 +164,7 @@ volunteering:
 projects:
   - id: antsi
     title: antsi
-    description: A quick and user-friendly way to style text for the terminal
+    description: A quick and easy way to style text for the terminal
     date:
       start: 2024-03-17
       end: 2024-04-18
@@ -170,15 +173,14 @@ projects:
       href: https://github.com/akrantz01/antsi
     details:
       - >-
-        Provides a simply Python API wrapping a Rust core through the PyO3 library, ensuring
-        maximum performance and ease of use.
+        Provides a simply Python API wrapping a Rust core through the PyO3 library to minimize the performance impact.
       - >-
-        Built a custom markup language parser to assign colors and decorations to text while
-        minimizing the number of escape sequences used.
+        Built a custom markup language parser to assign decorations to text, minimizing the number
+        of escape sequences.
 
   - id: lers
     title: lers
-    description: An asynchronous, user-friendly ACME client written in Rust
+    description: An asynchronous, user-friendly ACME client for Rust
     date:
       start: 2023-03-14
       end: 2023-03-30
@@ -206,12 +208,12 @@ projects:
         Implemented read-only access to files through a web UI using GraphQL written in TypeScript
         using React.
       - >-
-        Built a directory- and file-level permissions system for each user using an SSO proxy for
-        authentication and database for authorization.
+        Built a directory- and file-level permissions system using proxy authentication and
+        database-backed authorization.
 
   - id: lights
     title: Lights
-    description: Internet-controlled LEDs for my dorm running on a Raspberry Pi 4
+    description: An internet-controlled LED strip
     date:
       start: 2021-09-30
       end: 2022-04-03
@@ -223,12 +225,11 @@ projects:
         Drives a strip of Adafruit NeoPixels with a Rasperry Pi 4 through a Rust-based library for
         GPIO control.
       - >-
-        Provides real-time control and viewing from anywhere in the world using Cloudflare Tunnels,
-        a Golang-powered WebSockets server, and client-side synchronization through React and
-        Redux.
+        Provides real-time control with a web interface using WebSockets and Redux for client-side
+        state synchronization.
       - >-
-        Implemented presets, schedules, and custom animations with WebAssembly modules loaded and
-        executed on-demand.
+        Implemented customizable animations using WebAssembly modules loaded and executed
+        on-demand.
 
 awards:
   - id: treehacks-cognito
@@ -277,16 +278,18 @@ skills:
     - Next.js
     - Svelte
     - OpenTelemetry
-    - Terraform
-    - Ansible
-    - RedHat Ansible Automation Platform
+    - OAuth2
+    - gRPC
   "Tools & Technologies":
     - Amazon Web Serivces
+    - Git
     - Google Cloud Platform
     - Docker
     - Kubernetes
     - Linux
     - PostgreSQL
     - Redis
-    - Git
+    - Terraform
+    - Ansible
     - GitHub Actions
+    - GitLab CI

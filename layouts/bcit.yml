@@ -6,6 +6,7 @@ overrides:
 
 settings:
   full-links: true
+  locations: false
 
 sections:
   skills:

@@ -23,10 +23,10 @@
 )
 #set page(
   paper: "a4",
-  margin: (x: 0.5cm, top: 0.75cm, bottom: 0.5em),
+  margin: (x: 0.5cm, y: 0.5cm),
 )
 #set text(
-  size: 8pt,
+  size: 9.5pt,
   font: "Montserrat",
 )
 

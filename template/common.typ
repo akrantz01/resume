@@ -1,7 +1,7 @@
 #let section(title) = {
-  show heading: set text(size: 0.92em, weight: "bold")
+  show heading: set text(size: 1em, weight: "bold")
 
-  block[
+  block(above: 1.25em)[
     = #smallcaps(title)
     #v(-2pt)
     #line(length: 100%, stroke: 2pt + black)
