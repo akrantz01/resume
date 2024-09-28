@@ -26,7 +26,7 @@
   margin: (x: 0.5cm, y: 0.5cm),
 )
 #set text(
-  size: 9.5pt,
+  size: 9.75pt,
   font: "Montserrat",
 )
 
