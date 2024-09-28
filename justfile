@@ -15,7 +15,7 @@ watch layout="default": (typst "watch" layout)
 [private]
 typst command layout="default":
   {{typst_binary}} {{command}} main.typ {{layout}}.pdf \
-    --input layout=layouts/{{layout}}.yml \
+    --input layout={{layout}} \
     --font-path ./fonts
 
 # Format and lint the project

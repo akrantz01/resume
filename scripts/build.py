@@ -23,9 +23,7 @@ def compile(layout: str, output: Path) -> None:
 
     output = output / f"{layout}.pdf"
     result = subprocess.run(
-        f"./typst compile {MAIN} {output}"
-        f" --input layout={path.relative_to(CWD)}"
-        f" --font-path {FONTS}",
+        f"./typst compile {MAIN} {output} --input layout={layout} --font-path {FONTS}",
         shell=True,
     )
     if result.returncode != 0:

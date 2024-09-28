@@ -1,21 +1,27 @@
 ---
 title: My Resume
 
+settings:
+  locations: false
+
 sections:
-  education:
-    type: education
+  skills:
+    type: skills
 
   experience:
     type: experience
 
-  volunteering:
-    type: experience
-
   projects:
     type: projects
+    omit:
+      - davoxide
+
+  volunteering:
+    type: experience
+    title: Leadership Experience
+
+  education:
+    type: education
 
   awards:
     type: awards
-
-  skills:
-    type: skills

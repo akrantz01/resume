@@ -1,4 +1,6 @@
 ---
+extends: default
+
 title: BCIT Co-op Resume
 
 overrides:
@@ -6,26 +8,3 @@ overrides:
 
 settings:
   full-links: true
-  locations: false
-
-sections:
-  skills:
-    type: skills
-
-  experience:
-    type: experience
-
-  projects:
-    type: projects
-    omit:
-      - davoxide
-
-  volunteering:
-    type: experience
-    title: Leadership Experience
-
-  education:
-    type: education
-
-  awards:
-    type: awards

@@ -1,12 +1,11 @@
-#let data = yaml("data.yml")
-#let layout = {
-  let value = sys.inputs.at("layout", default: none)
-  if value == none {
-    panic("Missing layout specification in input, set using --input layout=...")
-  }
+#import "template/heading.typ": header
+#import "template/layout.typ": load-layout
+#import "template/overrides.typ": apply-overrides
+#import "template/sections.typ": sections
 
-  yaml(value)
-}
+#let layout = load-layout(sys.inputs.at("layout", default: none))
+#let data = apply-overrides(yaml("data.yml"), layout.at("overrides", default: (:)))
+
 #let author = {
   let value = data.author.links.find(link => link.type == "email")
   if value != none {
@@ -33,14 +32,6 @@
 #set list(indent: 0.5em, marker: [•])
 #show link: underline
 #show link: set underline(offset: 1.5pt)
-
-#import "template/heading.typ": header
-#import "template/overrides.typ": apply-overrides
-#import "template/sections.typ": sections
-#import "template/settings.typ": ensure-settings
-
-#let layout = ensure-settings(layout)
-#let data = apply-overrides(data, layout.at("overrides", default: (:)))
 
 #header(data.author.name, settings: layout.settings, links: data.author.links)
 #sections(layout, data)
