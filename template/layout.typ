@@ -13,19 +13,19 @@
 }
 
 #let deep-merge(dict1, dict2) = {
-    let final = dict1
-    for (k, v) in dict2 {
-        if (k in dict1) {
-            if type(v) == "dictionary" {
-                final.insert(k, deep-merge(dict1.at(k), v))
-            } else {
-                final.insert(k, dict2.at(k))
-            }
-        } else {
-            final.insert(k, v)
-        }
+  let final = dict1
+  for (k, v) in dict2 {
+    if (k in dict1) {
+      if type(v) == "dictionary" {
+        final.insert(k, deep-merge(dict1.at(k), v))
+      } else {
+        final.insert(k, dict2.at(k))
+      }
+    } else {
+      final.insert(k, v)
     }
-    final
+  }
+  final
 }
 
 #let process-extends(layout) = {
@@ -33,7 +33,7 @@
   if extends == none {
     return layout
   }
-  
+
   let parent = read-layout(extends)
   let merged = deep-merge(parent, layout)
   process-extends(merged)

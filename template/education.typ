@@ -29,8 +29,7 @@
   set block(above: 1em)
   grid(
     columns: (80%, 20%),
-    align(left, about),
-    align(right, date-range(date)),
+    align(left, about), align(right, date-range(date)),
   )
   pad(left: 1.25em, top: -0.45em)[
     #if location != none and settings.locations [ #emph(location) \ ]

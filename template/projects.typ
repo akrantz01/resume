@@ -44,7 +44,7 @@
 #let projects(title: "Projects", settings: (:), omit: (), ..entries) = {
   section(title)
   entries.pos().filter(((id, ..rest)) => id not in omit).map((
-    (id, title, date, ..rest)
+    (id, title, date, ..rest),
   ) => entry(
     title,
     date,

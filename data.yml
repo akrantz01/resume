@@ -140,7 +140,9 @@ experience:
       - >-
         Implemented ~25 bug fixes and features in Telegraf's database, cloud service, and
         orchestration interactions.
-      - Interacted with community developers to troubleshoot and resolve issues and pull requests on GitHub.
+      - >-
+        Interacted with community developers to troubleshoot and resolve issues and pull requests
+        on GitHub.
 
 volunteering:
   - id: wafflehacks
@@ -173,7 +175,8 @@ projects:
       href: https://github.com/akrantz01/antsi
     details:
       - >-
-        Provides a simply Python API wrapping a Rust core through the PyO3 library to minimize the performance impact.
+        Provides a simply Python API wrapping a Rust core through the PyO3 library to minimize the
+        performance impact.
       - >-
         Built a custom markup language parser to assign decorations to text, minimizing the number
         of escape sequences.

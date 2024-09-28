@@ -10,16 +10,13 @@
 
 // Converts a key specifier from the layout to a path within the data
 #let key-to-path(key) = {
-  key
-    .split(".")
-    .map(segment => {
-      if is-integer(segment) {
-        int(segment)
-      } else {
-        segment
-      }
-    })
-    .rev()
+  key.split(".").map(segment => {
+    if is-integer(segment) {
+      int(segment)
+    } else {
+      segment
+    }
+  }).rev()
 }
 
 // Recursively updates a value in a nested container using the provided path

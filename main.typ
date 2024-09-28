@@ -4,7 +4,10 @@
 #import "template/sections.typ": sections
 
 #let layout = load-layout(sys.inputs.at("layout", default: none))
-#let data = apply-overrides(yaml("data.yml"), layout.at("overrides", default: (:)))
+#let data = apply-overrides(
+  yaml("data.yml"),
+  layout.at("overrides", default: (:)),
+)
 
 #let author = {
   let value = data.author.links.find(link => link.type == "email")
