@@ -1,0 +1,16 @@
+virtualenv := env_var_or_default("VIRTUAL_ENV", "")
+python := if virtualenv == "" { "python3" } else { virtualenv + "/bin/python3" }
+
+export BASE_DIR := env_var_or_default("BASE_DIR", shell("git rev-parse --show-toplevel"))
+
+# List the available tasks
+list:
+  @just --list --unsorted
+
+# Build the site
+build:
+  {{python}} build.py
+
+# Preview the built site
+preview: build
+  wrangler pages dev {{BASE_DIR}}/build

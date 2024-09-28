@@ -4,9 +4,8 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 import httpx
+from constants import TYPST
 from github import Asset, Release, Repository
-
-CWD = Path.cwd()
 
 
 def select_asset_for_platform(release: Release) -> Asset:
@@ -60,19 +59,18 @@ def install_typst_if_needed(version: str | None = None, repository: str = "typst
     Install the specified typst release if it is not already installed.
     """
 
-    destination = CWD / "typst"
-    if destination.exists() and destination.is_file():
-        print(f"typst is already installed at {destination}")
+    if TYPST.exists() and TYPST.is_file():
+        print(f"typst is already installed at {TYPST}")
         return
 
     executable = download_typst(version, repository)
-    shutil.copyfile(executable, destination)
-    destination.chmod(0o755)
+    shutil.copyfile(executable, TYPST)
+    TYPST.chmod(0o755)
 
     shutil.rmtree(executable.parent.parent)
-    assert destination.exists()
+    assert TYPST.exists()
 
-    print(f"Installed typst at {destination}")
+    print(f"Installed typst at {TYPST}")
 
 
 if __name__ == "__main__":

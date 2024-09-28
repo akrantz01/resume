@@ -4,11 +4,11 @@ import sys
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
+from constants import CWD, TYPST
 from exiftool import ExifToolHelper
 from install_typst import install_typst_if_needed
 from jinja2 import Environment, FileSystemBytecodeCache, FileSystemLoader, select_autoescape
 
-CWD = Path.cwd()
 FONTS = CWD / "fonts"
 LAYOUTS = CWD / "layouts"
 MAIN = CWD / "main.typ"
@@ -24,7 +24,7 @@ def compile(layout: str, output: Path) -> None:
 
     output = output / f"{layout}.pdf"
     result = subprocess.run(
-        f"./typst compile {MAIN} {output} --input layout={layout} --font-path {FONTS}",
+        f"{TYPST} compile {MAIN} {output} --input layout={layout} --font-path {FONTS}",
         shell=True,
     )
     if result.returncode != 0:
