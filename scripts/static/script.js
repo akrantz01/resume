@@ -16,7 +16,7 @@ const linkService = new pdfjsViewer.PDFLinkService({
   externalLinkTarget: pdfjsViewer.LinkTarget.BLANK,
 });
 
-const viewer = new pdfjsViewer.PDFSinglePageViewer({
+const viewer = new pdfjsViewer.PDFViewer({
   container,
   eventBus,
   linkService,
