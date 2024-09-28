@@ -14,8 +14,6 @@ sections:
 
   experience:
     type: experience
-    omit:
-      - shuttle
 
   projects:
     type: projects
