@@ -19,7 +19,7 @@
 }
 
 #set document(
-  title: layout.title,
+  title: eval(layout.title, mode: "markup", scope: (author: data.author.name)),
   author: author,
   keywords: ("resume", "cv"),
 )

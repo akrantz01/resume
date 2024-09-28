@@ -1,7 +1,8 @@
 ---
 extends: default
 
-title: BCIT Co-op Resume
+title: >-
+  #author - Co-op Resume
 
 overrides:
   author.links.0.email: akrantz@my.bcit.ca
