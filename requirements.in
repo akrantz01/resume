@@ -2,4 +2,4 @@ attrs
 cattrs
 httpx[http2]
 jinja2
-PyExifTool
+pypdf

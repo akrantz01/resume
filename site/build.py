@@ -5,9 +5,9 @@ from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
 from constants import CWD, TYPST
-from exiftool import ExifToolHelper
 from install_typst import install_typst_if_needed
 from jinja2 import Environment, FileSystemBytecodeCache, FileSystemLoader, select_autoescape
+from pypdf import PdfReader
 
 FONTS = CWD / "fonts"
 LAYOUTS = CWD / "layouts"
@@ -38,18 +38,12 @@ def inspect_title(layout: str, output: Path) -> str:
     path = output / f"{layout}.pdf"
     if not path.exists():
         raise ValueError("Rendered PDF does not exist")
-
-    with ExifToolHelper() as exif:
-        tags = exif.get_tags(path, "Title")
-        if len(tags) == 0:
-            return "My Resume"
-
-        if "PDF:Title" in tags[0]:
-            return tags[0]["PDF:Title"]
-        elif "XMP:Title" in tags[0]:
-            return tags[0]["XMP:Title"]
-        else:
-            return "My Resume"
+    
+    with PdfReader(path) as pdf:
+        if pdf.metadata and pdf.metadata.title:
+            return pdf.metadata.title
+        
+        return "My Resume"
 
 
 def build_one(env: Environment, layout: str, output: Path) -> None:
