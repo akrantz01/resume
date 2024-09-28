@@ -4,6 +4,7 @@ import sys
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
+from exiftool import ExifToolHelper
 from install_typst import install_typst_if_needed
 from jinja2 import Environment, FileSystemBytecodeCache, FileSystemLoader, select_autoescape
 
@@ -30,6 +31,27 @@ def compile(layout: str, output: Path) -> None:
         sys.exit(result.returncode)
 
 
+def inspect_title(layout: str, output: Path) -> str:
+    """
+    Retrieve the title of the specified layout from the rendered PDF
+    """
+    path = output / f"{layout}.pdf"
+    if not path.exists():
+        raise ValueError("Rendered PDF does not exist")
+
+    with ExifToolHelper() as exif:
+        tags = exif.get_tags(path, "Title")
+        if len(tags) == 0:
+            return "My Resume"
+
+        if "PDF:Title" in tags[0]:
+            return tags[0]["PDF:Title"]
+        elif "XMP:Title" in tags[0]:
+            return tags[0]["XMP:Title"]
+        else:
+            return "My Resume"
+
+
 def build_one(env: Environment, layout: str, output: Path) -> None:
     """
     Build the specified layout
@@ -37,9 +59,11 @@ def build_one(env: Environment, layout: str, output: Path) -> None:
     print(f"Building {layout!r} layout...")
     compile(layout, output)
 
+    title = inspect_title(layout, output)
+
     template = env.get_template("viewer.html.j2")
     with (output / f"{layout}.html").open("w") as file:
-        template.stream(layout=layout).dump(file)
+        template.stream(layout=layout, title=title).dump(file)
 
 
 def build_all(env: Environment, output: Path) -> None:
